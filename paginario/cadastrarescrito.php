@@ -275,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="custom-input">
     <div class="icon usuario" aria-hidden="true"></div>
-    <input type="text" name="usuario" placeholder="Usuário" value="<?= isset($usuario) ? htmlspecialchars($usuario) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+    <input type="text" name="usuario" placeholder="Usuári" value="<?= isset($usuario) ? htmlspecialchars($usuario) : '' ?>" <?= $success ? "readonly" : "" ?> required />
 </div>
 
 <div class="custom-input">
