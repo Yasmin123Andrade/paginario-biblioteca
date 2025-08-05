@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: none;
             outline: none;
             font-size: 1rem;
-            color: #804D07;
+            color: #050505ff;
             flex-grow: 1;
             background: transparent;
             font-weight: bold;
@@ -175,8 +175,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             min-width: 0;
         }
 
-        .custom-input input:focus {
-            color: #E9A863;
+        .custom-input input::plachoelder {
+            color: #804D07;
         }
 
         .registration-form button {
@@ -273,7 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endif; ?>
 
-          <div class="custom-input">
+    <div class="custom-input">
     <div class="icon usuario" aria-hidden="true"></div>
     <input type="text" name="usuario" placeholder="Usuário" value="<?= isset($usuario) ? htmlspecialchars($usuario) : '' ?>" <?= $success ? "readonly" : "" ?> required />
 </div>
@@ -302,6 +302,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="icon nome-autor" aria-hidden="true"></div>
     <input type="text" name="autor" placeholder="Autor(a)" value="<?= isset($autor) ? htmlspecialchars($autor) : '' ?>" <?= $success ? "readonly" : "" ?> required />
 </div>
+
             <?php if (!$success) : ?>
                 <button type="submit">CADASTRAR</button>
             <?php endif; ?>
