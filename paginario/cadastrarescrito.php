@@ -1,0 +1,326 @@
+<?php
+
+$errors = [];
+$success = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $nomeLivro = filter_input(INPUT_POST, 'nome-livro', FILTER_SANITIZE_STRING);
+    $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRING);
+    $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
+
+ 
+    if (!$usuario) {
+        $errors[] = "O campo Usuário é obrigatório.";
+    }
+    if (!$senha) {
+        $errors[] = "O campo Senha é obrigatório.";
+    }
+    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "E-mail inválido.";
+    }
+    if (!$nomeLivro) {
+        $errors[] = "O campo Nome do livro é obrigatório.";
+    }
+    if (!$sinopse) {
+        $errors[] = "O campo Sinopse é obrigatório.";
+    }
+    if (!$autor) {
+        $errors[] = "O campo Autor(a) é obrigatório.";
+    }
+
+    if (count($errors) === 0) {
+        $success = true;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" href="imgs" />
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            color: #d6a65a;
+        }
+
+        .background {
+            background: url('imgs/image.png') no-repeat center center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px 80px;
+        }
+
+        .registration-form {
+            width: 100%;
+            background-color: #804D07;
+            width: 420px;
+            max-width: 95vw;
+            padding: 30px 30px 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .registration-form h1 {
+            font-family: "Staatliches", Helvetica, Arial, sans-serif;
+            font-size: 40px;
+            color: #d6a65a;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .custom-input {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid #e9a863cc;
+            padding: 10px 15px;
+            color: #9D9375;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .custom-input .icon {
+            width: 26px;
+            height: 26px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .usuario {
+            background-image: url('imgs/vector (1).svg');
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        .senha {
+            background-image: url('imgs/vector.svg');
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        .email {
+            background-image: url('imgs/image 2.png');
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        .nome-livro {
+            background-image: url('imgs/image 14.png');
+            width: 37px !important;
+            height: 37px !important;
+        }
+
+        .sinopse {
+            background-image: url('imgs/image 12.png');
+            width: 26px !important;
+            height: 26px !important;
+        }
+
+        .nome-autor {
+            background-image: url('imgs/image 13.png');
+            width: 28px !important;
+            height: 28px !important;
+        }
+
+        .custom-input .title {
+            color: #9D9375;
+            -webkit-text-stroke: 1px #e9a863;
+            padding-left: 10px;
+            font-family: "Sahitya-Regular", Helvetica;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .custom-input input {
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #804D07;
+            flex-grow: 1;
+            background: transparent;
+            font-weight: bold;
+            padding: 0;
+            min-width: 0;
+        }
+
+        .custom-input input:focus {
+            color: #E9A863;
+        }
+
+        .registration-form button {
+            background-color: #E9A863;
+            font-family: "Sahitya", Helvetica, Arial, sans-serif;
+            color: #804D07;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            padding: 10px 0;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .registration-form button:hover {
+            background-color: #d1a25a;
+        }
+
+        footer {
+            background-color: #804D07;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #E9A863;
+            font-size: 0.9rem;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            user-select: none;
+        }
+
+        footer a {
+            color: #E9A863;
+            margin: 0 16px;
+            text-decoration: none;
+            border-bottom: 1px solid #f0dfb3;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        footer span {
+            margin-left: 16px;
+        }
+
+        .error-message {
+            color: red;
+            background-color: white;
+            font-family: "Sahitya", Helvetica, Arial, sans-serif;
+            padding: 8px;
+            border-radius: 50px;
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .success-message {
+            color: green;
+            background-color: white;
+            font-family: "Sahitya", Helvetica, Arial, sans-serif;
+            padding: 10px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <main>
+        <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
+            <h1>BIBLIOTECA VIRTUAL</h1>
+
+            <?php if (!$success && !empty($errors)) : ?>
+                <div class="error-message">
+                    <?php foreach ($errors as $error) {
+                        echo htmlspecialchars($error) . "<br>";
+                    } ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($success) : ?>
+                <div class="success-message">
+                    Cadastro realizado com sucesso!
+                </div>
+            <?php endif; ?>
+
+            <div class="custom-input">
+                <div class="icon usuario" aria-hidden="true"></div>
+                <div class="title">Usuário:</div>
+                <input type="text" name="usuario" value="<?= isset($usuario) ? htmlspecialchars($usuario) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon senha" aria-hidden="true"></div>
+                <div class="title">Senha:</div>
+                <input type="password" name="senha" value="<?= isset($senha) ? htmlspecialchars($senha) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon email" aria-hidden="true"></div>
+                <div class="title">e-mail:</div>
+                <input type="email" name="email" value="<?= isset($email) ? htmlspecialchars($email) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon nome-livro" aria-hidden="true"></div>
+                <div class="title">Nome do livro:</div>
+                <input type="text" name="nome-livro" value="<?= isset($nomeLivro) ? htmlspecialchars($nomeLivro) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon sinopse" aria-hidden="true"></div>
+                <div class="title">Sinopse:</div>
+                <input type="text" name="sinopse" value="<?= isset($sinopse) ? htmlspecialchars($sinopse) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon nome-autor" aria-hidden="true"></div>
+                <div class="title">Autor(a):</div>
+                <input type="text" name="autor" value="<?= isset($autor) ? htmlspecialchars($autor) : '' ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <?php if (!$success) : ?>
+                <button type="submit">CADASTRAR</button>
+            <?php endif; ?>
+        </form>
+    </main>
+
+    <footer>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <span>| Todos os direitos reservados (BR)</span>
+    </footer>
+
+</body>
+
+</html>

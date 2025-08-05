@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="img">
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #eab97f;
+}
+
+header {
+    background: #86541c;
+    text-align: center;
+    position: relative;
+    padding: 10px 0;
+    height: 40px;
+}
+
+.menu-icon {
+    position: absolute;
+    left: 20px;
+    top: auto;
+    bottom: auto;
+    font-size: auto;
+}
+
+.bookshelf {
+    background: url('img/image.png') no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    height: 80px;
+    margin-bottom: 10px;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    padding-top: 20px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.book-item {
+    background: transparent;
+    text-align: center;
+}
+
+.book-item h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.06em;
+    color: #624100;
+    margin-bottom: 9px;
+    margin-top: 0;
+}
+
+.book-cover {
+    position: relative;
+    display: inline-block;
+}
+
+.book-cover img {
+    width: 160px;
+    height: 218px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #c7a06e;
+    box-shadow: 0 2px 8px rgba(90,60,10,0.12);
+    background: #fff;
+}
+
+.age {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    background: #fff;
+    color: #d10d16;
+    border: 2px solid #d10d16;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.11);
+}
+
+.age-14 {
+    color: #de0069;
+    border-color: #de0069;
+}
+
+footer {
+    background: #86541c;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0 14px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.08em;
+    letter-spacing: .02em;
+}
+
+footer a {
+    color: #E9A863;
+    margin: 0 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #E9A863;
+}
+
+footer span {
+    color: #E9A863;
+    margin-left: 18px;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon">   
+          <img src="img/component 1.svg" alt="Menu" />
+        </div>
+    </header>
+    <div class="bookshelf">
+                  <h1>PÁGINA INICIAL</h1>
+    </div>
+    <main>
+        <section class="book-grid">
+
+            <div class="book-item">
+                <h2>Orgulho e Preconceito</h2>
+                <div class="book-cover">
+                    <img src="img/image 11 (1).png" alt="Orgulho e Preconceito" />
+                    <span class="age age-14">14+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>Seus Trinta Melhores Contos</h2>
+                <div class="book-cover">
+                    <img src="img/image 11.png" alt="Seus Trinta Melhores Contos" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>Dom Casmurro</h2>
+                <div class="book-cover">
+                    <img src="img/image 10.png" alt="Dom Casmurro" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>O Cortiço</h2>
+                <div class="book-cover">
+                    <img src="img/image 15.png" alt="O Cortiço" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>A Mão e A Luva</h2>
+                <div class="book-cover">
+                    <img src="img/image 23.png" alt="A Mão e A Luva" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>Quincas Borba</h2>
+                <div class="book-cover">
+                    <img src="img/image 21.png" alt="Quincas Borba" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>O Alienista</h2>
+                <div class="book-cover">
+                    <img src="img/image 23 (1).png" alt="O Alienista" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <h2>Helena</h2>
+                <div class="book-cover">
+                    <img src="img/image 23 (2).png" alt="Helena" />
+                    <span class="age age-16">16+</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <span>| Todos os direitos reservados (BR)</span>
+    </footer>
+</body>
+</html>
