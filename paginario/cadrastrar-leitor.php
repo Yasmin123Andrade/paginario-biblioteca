@@ -125,9 +125,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </div>
 <div class="rodape">
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
-    | Todos os direitos reservados (BR)
-</div>
+        <a href="politicaprivacidade.html">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        | Todos os direitos reservados (BR)
+    </div>
 </body>
 </html>

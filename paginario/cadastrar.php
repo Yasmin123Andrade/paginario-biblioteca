@@ -87,8 +87,8 @@
         <a href="cadastrarescrito.php" class="botao">CADASTRAR ESCRITOR</a>
     </div>
 
-      <div class="rodape">
-        <a href="#">Política de Privacidade</a>
+     <div class="rodape">
+        <a href="politicaprivacidade.html">Política de Privacidade</a>
         <a href="#">Termos de Uso</a>
         | Todos os direitos reservados (BR)
     </div>
