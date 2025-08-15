@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (!empty($_POST["usuario"]) && !empty($_POST["senha"]) && !empty($_POST["email"])) {
  
-        header("Location: inicio.php");
+        header("Location: inicio.html");
         exit;
     } else {
         $erro = "Por favor, preencha todos os campos!";
