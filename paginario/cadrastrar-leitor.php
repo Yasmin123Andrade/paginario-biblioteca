@@ -2,10 +2,10 @@
 $erro = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica se todos os campos estão preenchidos
+    
     if (!empty($_POST["usuario"]) && !empty($_POST["senha"]) && !empty($_POST["email"])) {
-        // Se os campos estiverem preenchidos, redireciona para outra página
-        header("Location: paginainicial.php");
+ 
+        header("Location: inicio.php");
         exit;
     } else {
         $erro = "Por favor, preencha todos os campos!";
