@@ -1,26 +1,12 @@
 <?php
-include 'conexao.php';
-
 $erro = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se todos os campos estão preenchidos
     if (!empty($_POST["usuario"]) && !empty($_POST["senha"]) && !empty($_POST["email"])) {
-        $usuario = $_POST["usuario"];
-        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
-        $email = $_POST["email"];
-
-        $sql = "INSERT INTO usuarios (usuario, senha, email) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $usuario, $senha, $email);
-
-        if ($stmt->execute()) {
-            // Redireciona para a próxima página após cadastro
-            header("Location: paginainicial.php");
-            exit;
-        } else {
-            $erro = "Erro ao cadastrar: " . $stmt->error;
-        }
+        // Se os campos estiverem preenchidos, redireciona para outra página
+        header("Location: paginainicial.php");
+        exit;
     } else {
         $erro = "Por favor, preencha todos os campos!";
     }
