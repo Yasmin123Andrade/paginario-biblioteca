@@ -309,11 +309,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </main>
 
-    <footer>
+     <div class="rodape">
         <a href="#">Política de Privacidade</a>
         <a href="#">Termos de Uso</a>
-        <span>| Todos os direitos reservados (BR)</span>
-    </footer>
+        | Todos os direitos reservados (BR)
+    </div>
 
 </body>
 
