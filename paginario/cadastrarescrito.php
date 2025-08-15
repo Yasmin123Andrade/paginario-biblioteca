@@ -32,8 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "O campo Autor(a) é obrigatório.";
     }
 
-    if (count($errors) === 0) {
-        $success = true;
+   if (count($errors) === 0) {
+    header("Location: inicio.php");
+    exit;
+
     }
 }
 ?>
