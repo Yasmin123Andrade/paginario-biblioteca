@@ -1,39 +1,12 @@
 <?php
-
-$errors = [];
 $success = false;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $nomeLivro = filter_input(INPUT_POST, 'nome-livro', FILTER_SANITIZE_STRING);
-    $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRING);
-    $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $success = true;
 
- 
-    if (!$usuario) {
-        $errors[] = "O campo Usuário é obrigatório.";
-    }
-    if (!$senha) {
-        $errors[] = "O campo Senha é obrigatório.";
-    }
-    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "E-mail inválido.";
-    }
-    if (!$nomeLivro) {
-        $errors[] = "O campo Nome do livro é obrigatório.";
-    }
-    if (!$sinopse) {
-        $errors[] = "O campo Sinopse é obrigatório.";
-    }
-    if (!$autor) {
-        $errors[] = "O campo Autor(a) é obrigatório.";
-    }
-
-    if (count($errors) === 0) {
-        $success = true;
+    if ($success) {
+        header('Location: inicio.html');
+        exit();
     }
 }
 ?>
@@ -238,17 +211,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.9rem;
             text-align: center;
         }
-
-        .success-message {
-            color: green;
-            background-color: white;
-            font-family: "Sahitya", Helvetica, Arial, sans-serif;
-            padding: 10px;
-            border-radius: 50px;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -258,20 +220,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
             <h1>BIBLIOTECA VIRTUAL</h1>
-
-            <?php if (!$success && !empty($errors)) : ?>
-                <div class="error-message">
-                    <?php foreach ($errors as $error) {
-                        echo htmlspecialchars($error) . "<br>";
-                    } ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($success) : ?>
-                <div class="success-message">
-                    Cadastro realizado com sucesso!
-                </div>
-            <?php endif; ?>
 
     <div class="custom-input">
     <div class="icon usuario" aria-hidden="true"></div>
