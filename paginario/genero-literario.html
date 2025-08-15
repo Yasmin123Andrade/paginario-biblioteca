@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gênero Literário - Romance</title>
+  <link rel="stylesheet" href="img">
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #ecb87f;
+  color: #7f4d04;
+}
+header {
+    background: #86541c;
+    text-align: center;
+    position: relative;
+    padding: 5px 0;
+    height: 40px;
+}
+
+.menu-icon {
+position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+.menu-icon img {
+  width: 40px;
+  height: 35px;
+}
+
+.texto-banner {
+    background: url('img/image.png') no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    height: 80px;
+    margin-bottom: 10px;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon {
+    position: absolute;
+    left: 20px;
+    top: auto;
+    bottom: auto;
+    font-size: auto;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0;
+  color: #fff;
+}
+
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
+}
+
+
+.categoria {
+  text-align: center;
+  font-size: 28px;
+  color: #814f09;
+  margin-top: 20px;
+  font-family: 'Times New Roman', serif;
+  text-transform: uppercase;
+}
+
+.livros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 220px;
+ 
+}
+
+.livro {
+  width: 16%;
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px;
+  box-shadow: border-box;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.livro h3 {
+  font-size: 18px;
+  color: #7e4b0a;
+  text-align: center;  
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+
+.livro img {
+  width: auto;  
+  max-width: 100%;  
+  height: auto;
+  margin: 10px 0;
+}
+
+.livro p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.download {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.download a {
+  color: #8b4513;
+  text-decoration: underline;
+}
+
+footer {
+    background: #86541c;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0 14px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.08em;
+    letter-spacing: .02em;
+}
+
+footer a {
+    color: #E9A863;
+    margin: 0 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #E9A863;
+}
+
+footer span {
+    color: #E9A863;
+    margin-left: 18px;
+}
+  </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon">   
+          <img src="img/component 1.svg" alt="Menu" />
+        </div>
+        <h2>FILTRO DE PESQUISA</h2>
+    </header>
+    <div class="texto-banner">
+                  <h1>GÊNERO LITERÁRIO</h1>
+    </div>
+   <h2 class="categoria">ROMANCE</h2>
+  <main>
+    
+    <section class="livros">
+      <article class="livro">
+        <h3>Orgulho e Preconceito – Jane Austen</h3>
+        <img src="img/image 11 (1).png" alt="Orgulho e Preconceito">
+        <p>
+          Publicado em 1813, este romance clássico da literatura inglesa acompanha a história de Elizabeth Bennet...
+        </p>
+        <div class="download">
+        <a href="img/orgulho-e-preconceito.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="img/pdf-icon.png" alt="PDF" style="width:20px; vertical-align:middle; margin-right:5px;" />
+        </a>
+        <a href="img/orgulho-e-preconceito.epub" target="_blank" rel="noopener noreferrer">
+            <img src="img/epub-icon.png" alt="EPUB" style="width:20px; vertical-align:middle; margin-right:8px;" />
+        </a>
+        </div>
+      </article>
+
+      <article class="livro">
+        <h3>Dom Casmurro – Machado de Assis</h3>
+        <img src="img/image 11.png" alt="Dom Casmurro">
+        <p>
+          Publicado em 1899, este romance é um dos maiores clássicos da literatura brasileira...
+        </p>
+        <div class="download">
+        <a href="img/dom-casmurro.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="img/pdf-icon.png" alt="PDF" style="width:20px; vertical-align:middle; margin-right:5px;" />
+        </a>
+        <a href="img/dom-casmurro.epub" target="_blank" rel="noopener noreferrer">
+            <img src="img/epub-icon.png" alt="EPUB" style="width:20px; vertical-align:middle; margin-right:8px;" />
+        </a>
+        </div>
+      </article>
+
+      <article class="livro">
+        <h3>O Cortiço – Aluísio de Azevedo</h3>
+        <img src="img/image 10.png" alt="O Cortiço">
+        <p>
+          Publicado em 1890, O Cortiço é uma obra naturalista que retrata a vida num cortiço no Rio de Janeiro...
+        </p>
+        <div class="download">
+        <a href="img/o-cortico.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="img/pdf-icon.png" alt="PDF" style="width:20px; vertical-align:middle; margin-right:5px;" />
+        </a>
+        <a href="img/o-cortico.epub" target="_blank" rel="noopener noreferrer">
+            <img src="img/epub-icon.png" alt="EPUB" style="width:20px; vertical-align:middle; margin-right:8px;" />
+        </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos de Uso</a>
+    <span>| Todos os direitos reservados (BR)</span>
+  </footer>
+</body>
+</html>
