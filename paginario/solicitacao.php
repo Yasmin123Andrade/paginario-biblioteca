@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin: 0;
         font-family: Georgia, serif;
         background-color: #ecb87f;
-        color: #7f4d04;
+        color: #FFF;
     }
 
     .menu-icon img {
@@ -172,6 +172,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 15px;
             border-radius: 5px;
         }
+
+        h1 {
+  font-size: 30px;
+  margin: 0;
+  color: #fff;
+}
+
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
+}
 
     </style>
 </head>
