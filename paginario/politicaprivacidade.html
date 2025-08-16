@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Política de Privacidade - Biblioteca Virtual</title>
+<link href="img">
 <style>
     * {
         margin: 0;
@@ -16,6 +17,71 @@
         color: #3d2815;
         line-height: 1.6;
     }
+
+    .menu-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #86541c;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu ul li a {
+  color: #eab97f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.side-menu.open {
+  left: 0; 
+}
+
+.menu-icon {
+  cursor: pointer;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-icon img {
+  width: 100%;
+  height: 100%;
+}
 
     .main-header {
         display: flex;
@@ -72,7 +138,28 @@
 
 <header class="main-header">
     <h1>Política de Privacidade</h1>
-</header>
+<div class="menu-icon">   
+          <img src="img/component 1.svg" alt="Abrir Menu" />
+        </div>
+    </header>
+    <nav id="side-menu" class="side-menu">
+          <div class="close-icon">
+    <img src="img/component 1.svg" alt="Fechar Menu"/>
+  </div>
+  <ul>
+    <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a style="color: antiquewhite;">Filtros</a></li>
+    <li><a href="genero-literario.html">Gênero</a></li>
+    <li><a href="autores.php">Autor</a></li>
+    <li><a href="editora.html">Editora</a></li>
+    <li><a href="#">Faixa Etária</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+     <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+  </ul>
+</nav>
 
 <main class="content">
     <h2>Bem-vindo à Biblioteca Virtual</h2>
@@ -82,5 +169,20 @@
     <p>Você pode pedir para alterar ou excluir seus dados quando quiser. Se mudarmos esta política.</p>
 </main>
  
+<script>
+  const menuIcon = document.querySelector('.menu-icon');
+const sideMenu = document.getElementById('side-menu');
+const closeIcon = document.querySelector('.close-icon');
+
+menuIcon.addEventListener('click', () => {
+  sideMenu.classList.add('open'); 
+});
+
+closeIcon.addEventListener('click', () => {
+  sideMenu.classList.remove('open');
+});
+
+</script>
+
 </body>
 </html>

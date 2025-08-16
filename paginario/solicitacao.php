@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Solicitação de Livros</title>
+    <link hrf="img">
     <style>
         * {
             margin: 0;
@@ -28,6 +29,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #d29c66;
             color: #5b391f;
         }
+
+        .side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #86541c;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu ul li a {
+  color: #eab97f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.side-menu.open {
+  left: 0; 
+}
+
+.menu-icon {
+  cursor: pointer;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-icon img {
+  width: 100%;
+  height: 100%;
+}
 
         .topo {
             background: #845c26;
