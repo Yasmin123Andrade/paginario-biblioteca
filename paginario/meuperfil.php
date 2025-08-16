@@ -3,16 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Meu Perfil</title>
-  <link href="img">
   <style>
-    body {
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+h1 {
+  font-size: 30px;
   margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4e5d4;
-  color: #4a2f0b;
-  height: 100%;
-  width: 100vw ;
+  color: #fff;
+}
+
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
+}  
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #ecb87f;
+  color: #7f4d04;
+}
+header {
+    background: #86541c;
+    text-align: center;
+    position: relative;
+    padding: 5px 0;
+    height: 40px;
 }
 
     .menu-icon img {
@@ -156,19 +178,16 @@ min-height: 100vh;
   height: 100%;
 }
 
-header {
-  background-color: #6b3f0e;
-  color: #d99951; 
-  text-align: center;
-  padding: 1px 0;
-  font-size: 15px;
-  width: 100%;
-}
-
-.estante {
-    background-image:url('img/fundoimagem.png');
-  height: 60px;
-  background-size: cover;
+.bookshelf {
+    background: url('img/image.png') no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    height: 80px;
+    margin-bottom: 10px;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .perfil {
@@ -286,7 +305,7 @@ footer a {
   <div class="pagina">
   <div class="container">
     <header>
-      <h1>MEU PERFIL</h1>
+      <h2>MEU PERFIL</h2>
       <div class="menu-icon">   
           <img src="img/component 1.svg" alt="Abrir Menu" />
         </div>
@@ -309,8 +328,9 @@ footer a {
     <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
   </ul>
 </nav>
-      <div class="estante"></div>
-    </header>
+
+    <div class="bookshelf">
+    </div>
 
     <main class="perfil">
       <div class="foto-perfil">

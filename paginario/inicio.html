@@ -5,6 +5,11 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="img">
 <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .download-area a {
     color: #654321;
@@ -18,17 +23,22 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: #eab97f;
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #ecb87f;
+  color: #7f4d04;
 }
-
 header {
     background: #86541c;
     text-align: center;
     position: relative;
-    padding: 10px 0;
+    padding: 5px 0;
     height: 40px;
+}
+
+.menu-icon img {
+  width: 40px;
+  height: 40px;
 }
 
 .side-menu {
@@ -72,8 +82,6 @@ header {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  width: 30px;
-  height: 30px;
 }
 
 .close-icon {
@@ -93,6 +101,18 @@ header {
   height: 100%;
 }
 
+h1 {
+  font-size: 30px;
+  margin: 0;
+  color: #fff;
+}
+
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
+}
 
 .bookshelf {
     background: url('img/image.png') no-repeat center top;
@@ -104,13 +124,6 @@ header {
     display:flex;
     justify-content: center;
     align-items: center;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-    letter-spacing: 3px;
-    padding-top: 20px;
 }
 
 .book-grid {
@@ -128,11 +141,11 @@ h1 {
 }
 
 .book-item h2 {
-    font-family: 'Georgia', serif;
-    font-size: 1.06em;
-    color: #624100;
-    margin-bottom: 9px;
-    margin-top: 0;
+  font-size: 18px;
+  color: #7e4b0a;
+  text-align: center;  
+  margin-bottom: 8px;
+  white-space: nowrap;
 }
 
 .book-cover {

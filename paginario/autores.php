@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Biblioteca | Autores </title>
+  <meta charset="UTF-8" />
+  <title>Biblioteca | Autores</title>
+  <link rel=stylesheet href="img">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5cc99;
-      color: #4d2e00;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .side-menu {
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #ecb87f;
+  color: #7f4d04;
+}
+header {
+    background: #86541c;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    padding: 5px 0;
+    height: 40px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0;
+  color: #fff;
+}
+
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
+}
+
+.menu-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.side-menu {
   position: fixed;
   top: 0;
   left: -250px;
@@ -52,8 +85,6 @@
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  width: 30px;
-  height: 30px;
 }
 
 .close-icon {
@@ -73,37 +104,25 @@
   height: 100%;
 }
 
-    header {
-      background-color: #7a4a00;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .filtro {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
     .logo {
       font-size: 14px;
       font-weight: bold;
     }
 
-    main {
-      text-align: center;
+    .bookshelf {
+      background: url('img/image.png') no-repeat center top;
+      color: #fff;
+      background-size: cover;
+      height: 80px;
+      margin-bottom: 10px;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    h1 {
-      margin: 20px 0;
-      font-size: 26px;
+    main {
+      text-align: center;
     }
 
     .livros {
@@ -172,25 +191,45 @@
 </head>
 <body>
   <header>
-    <div class="menu-icon">☰</div>
-    <div class="filtro">FILTRO DE PESQUISA</div>
-    <div class="logo"> PAGINÁRIO</div>
+        <h2>FILTRO DE PESQUISA</h2>
+    <div class="menu-icon">   
+      <img src="img/component 1.svg" alt="Abrir Menu" />
+    </div>
   </header>
+  <nav id="side-menu" class="side-menu">
+    <div class="close-icon">
+      <img src="img/component 1.svg" alt="Fechar Menu"/>
+    </div>
+    <ul>
+      <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a style="color: antiquewhite;">Filtros</a></li>
+      <li><a href="genero-literario.html">Gênero</a></li>
+      <li><a href="autores.php">Autor</a></li>
+      <li><a href="editora.html">Editora</a></li>
+      <li><a href="#">Faixa Etária</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <h1>MACHADO DE ASSIS</h1>
+    <div class="bookshelf">
+      <h1>MACHADO DE ASSIS</h1>
+    </div>
 
     <section class="livros">
       <?php
         $livros = [
-          ["titulo" => "Memórias Póstumas de Brás Cuba", "img" => "https://m.media-amazon.com/images/I/51whHTZRLxL.jpg"],
-          ["titulo" => "Seus Trinta Melhores Contos", "img" => "https://m.media-amazon.com/images/I/81R45z9g38L.jpg"],
-          ["titulo" => "Dom Casmurro", "img" => "https://m.media-amazon.com/images/I/81ZPrKaN8TL.jpg"],
-          ["titulo" => "O Cortiço", "img" => "https://m.media-amazon.com/images/I/91ySbkzzs7L.jpg"],
-          ["titulo" => "A Mão e a Luva", "img" => "https://m.media-amazon.com/images/I/81XwzFOHTaL.jpg"],
-          ["titulo" => "Quincas Borba", "img" => "https://m.media-amazon.com/images/I/71T9J6e1zLL.jpg"],
-          ["titulo" => "O Alienista", "img" => "https://m.media-amazon.com/images/I/71yk0Rj0taL.jpg"],
-          ["titulo" => "Helena", "img" => "https://m.media-amazon.com/images/I/81wsD9eM7-L.jpg"]
+          ["titulo" => "Memórias Póstumas de Brás Cuba", "img" => "img/memoriaspostumas.png"],
+          ["titulo" => "Seus Trinta Melhores Contos", "img" => "img/image 15.png"],
+          ["titulo" => "Dom Casmurro", "img" => "img/image 11.png"],
+          ["titulo" => "A Mão e a Luva", "img" => "img/image 23.png"],
+          ["titulo" => "Quincas Borba", "img" => "img/image 21.png"],
+          ["titulo" => "O Alienista", "img" => "img/oalienista.png"],
+          ["titulo" => "Helena", "img" => "img/helena.png"]
         ];
 
         foreach ($livros as $livro) {
@@ -209,5 +248,19 @@
     <a href="#">Termos de Uso</a>
     <span>| Todos os direitos reservados (BR)</span>
   </footer>
+
+  <script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const sideMenu = document.getElementById('side-menu');
+    const closeIcon = document.querySelector('.close-icon');
+
+    menuIcon.addEventListener('click', () => {
+      sideMenu.classList.add('open'); 
+    });
+
+    closeIcon.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+    });
+  </script>
 </body>
 </html>

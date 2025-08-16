@@ -18,87 +18,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Solicitação de Livros</title>
     <link hrf="img">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            background: #d29c66;
-            color: #5b391f;
-        }
+    body {
+        margin: 0;
+        font-family: Georgia, serif;
+        background-color: #ecb87f;
+        color: #7f4d04;
+    }
 
-        .side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #86541c;
-  padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
+    .menu-icon img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #86541c;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
 
-.side-menu ul li {
-  margin: 20px 0;
-  text-align: center;
-}
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-.side-menu ul li a {
-  color: #eab97f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-}
+    .side-menu ul li {
+        margin: 20px 0;
+        text-align: center;
+    }
 
-.side-menu.open {
-  left: 0; 
-}
+    .side-menu ul li a {
+        color: #eab97f;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
 
-.menu-icon {
-  cursor: pointer;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  width: 30px;
-  height: 30px;
-}
+    .side-menu.open {
+        left: 0;
+    }
 
-.close-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .close-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.close-icon img {
-  width: 100%;
-  height: 100%;
-}
+    .close-icon img {
+        width: 100%;
+        height: 100%;
+    }
 
-        .topo {
-            background: #845c26;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
+    .topo {
+        background: #845c26;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .menu-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
         .livros {
             background: url('img/fundoimagem.png') no-repeat center;
@@ -167,11 +172,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 15px;
             border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
 
-<div class="topo">SOLICITAÇÃO DE LIVROS</div>
+<div class="topo">
+            <div class="menu-icon">   
+          <img src="img/component 1.svg" alt="Abrir Menu" />
+        </div>
+SOLICITAÇÃO DE LIVROS</div>
+    <nav id="side-menu" class="side-menu">
+          <div class="close-icon">
+    <img src="img/component 1.svg" alt="Fechar Menu"/>
+  </div>
+  <ul>
+    <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a style="color: antiquewhite;">Filtros</a></li>
+    <li><a href="genero-literario.html">Gênero</a></li>
+    <li><a href="autores.php">Autor</a></li>
+    <li><a href="editora.html">Editora</a></li>
+    <li><a href="#">Faixa Etária</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+     <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+  </ul>
+</nav>
 <div class="livros"></div>
 
 <div class="conteudo">
@@ -203,6 +231,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="#" style="color:white; text-decoration: underline;">Termos de Uso</a> |
     Todos os direitos reservados (BR)
 </div>
+
+<script>
+const menuIcon = document.querySelector('.menu-icon');
+const sideMenu = document.getElementById('side-menu');
+const closeIcon = document.querySelector('.close-icon');
+
+menuIcon.addEventListener('click', () => {
+    sideMenu.classList.add('open'); 
+});
+
+closeIcon.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+});
+</script>
 
 </body>
 </html>

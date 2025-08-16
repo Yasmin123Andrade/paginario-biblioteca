@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editora – Filtro de Pesquisa</title>
-  <link href="img">
+  <link rel="stylesheet" href="img">
   <style>
     * {
   margin: 0;
@@ -13,8 +13,21 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #e1c9a7;  
+  font-family: Georgia, serif;
+  background-color: #ecb87f;
+}
+
+header {
+    background: #86541c;
+    text-align: center;
+    position: relative;
+    padding: 5px 0;
+    height: 40px;
+}
+
+.menu-icon img {
+  width: 40px;
+  height: 40px;
 }
 
 .side-menu {
@@ -58,8 +71,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  width: 30px;
-  height: 30px;
 }
 
 .close-icon {
@@ -79,41 +90,29 @@ body {
   height: 100%;
 }
 
-.main-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: #a56e1a;  
+h1 {
+  font-size: 30px;
+  margin: 0;
   color: #fff;
-  padding: 12px 20px;
 }
 
-.menu-btn {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  left: 20px;
-}
-
-.main-header h1 {
-  font-size: 1.4rem;
-  letter-spacing: 1px;
+h2 {
+  margin: 5px 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #E9A863;
 }
 
 .publisher-banner {
-  display: flex;
-  align-items: center;
-  background: url('./img/livros.png') center/cover no-repeat;
-  margin-bottom: 30px;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-  padding: 40px;
-  position: relative;
-  justify-content: center; 
+    background: url('img/image.png') no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    height: 80px;
+    margin-bottom: 10px;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-wrapper {
@@ -203,13 +202,30 @@ body {
 <body>
 
   <!-- Top bar -->
-  <header class="main-header">
-    <button class="menu-btn">
-      <!-- ícone hamburger -->
-      <span class="menu-icon">☰</span>
-    </button>
-    <h1>FILTRO DE PESQUISA</h1>
-  </header>
+  <header>
+        <h2>FILTRO DE PESQUISA</h2>
+        <div class="menu-icon">   
+          <img src="img/component 1.svg" alt="Abrir Menu" />
+        </div>
+    </header>
+    <nav id="side-menu" class="side-menu">
+          <div class="close-icon">
+    <img src="img/component 1.svg" alt="Fechar Menu"/>
+  </div>
+  <ul>
+    <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a style="color: antiquewhite;">Filtros</a></li>
+    <li><a href="genero-literario.html">Gênero</a></li>
+    <li><a href="autores.php">Autor</a></li>
+    <li><a href="editora.html">Editora</a></li>
+    <li><a href="#">Faixa Etária</a></li>
+    <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+     <li><a style="color: peru;">------------------------------</a></li>
+    <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+  </ul>
+</nav>
 
   <!-- Seção "Editora" com fundo de estante -->
   <section class="publisher-section">
@@ -217,7 +233,7 @@ body {
       <div class="icon-wrapper">
         <img src="./img/paginario.png" alt="Logo Paginário" class="book-icon" style="width: 50px; height: 50px;">
       </div>
-      <h2>EDITORA</h2>
+      <h1>EDITORA</h1>
     </div>
 
     <!-- Grade de livros -->
@@ -311,6 +327,21 @@ body {
     <a href="#">Termos de Uso</a> |
     <span>Todos os direitos reservados (BR)</span>
   </footer>
+
+    <script>
+  const menuIcon = document.querySelector('.menu-icon');
+const sideMenu = document.getElementById('side-menu');
+const closeIcon = document.querySelector('.close-icon');
+
+menuIcon.addEventListener('click', () => {
+  sideMenu.classList.add('open'); 
+});
+
+closeIcon.addEventListener('click', () => {
+  sideMenu.classList.remove('open');
+});
+
+</script>
 
 </body>
 </html>
