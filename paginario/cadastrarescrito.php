@@ -106,45 +106,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
+            margin-right: 10px;
         }
-        .usuario {
-            background-image: url('imgs/vector (1).svg');
-            width: 25px !important;
-            height: 25px !important;
-        }
-        .senha {
-            background-image: url('imgs/vector.svg');
-            width: 25px !important;
-            height: 25px !important;
-        }
-        .email {
-            background-image: url('imgs/image 2.png');
-            width: 25px !important;
-            height: 25px !important;
-        }
-        .nome-livro {
-            background-image: url('imgs/image 14.png');
-            width: 37px !important;
-            height: 37px !important;
-        }
-        .sinopse {
-            background-image: url('imgs/image 12.png');
-            width: 26px !important;
-            height: 26px !important;
-        }
-        .nome-autor {
-            background-image: url('imgs/image 13.png');
-            width: 28px !important;
-            height: 28px !important;
-        }
-        .custom-input .title {
-            color: #9D9375;
-            -webkit-text-stroke: 1px #e9a863;
-            padding-left: 10px;
-            font-family: "Sahitya-Regular", Helvetica;
-            font-size: 1rem;
-            white-space: nowrap;
-        }
+        .usuario { background-image: url('imgs/vector (1).svg'); }
+        .senha { background-image: url('imgs/vector.svg'); }
+        .email { background-image: url('imgs/image 2.png'); }
+        .nome-livro { background-image: url('imgs/image 14.png'); }
+        .sinopse { background-image: url('imgs/image 12.png'); }
+        .nome-autor { background-image: url('imgs/image 13.png'); }
+
         .custom-input input {
             border: none;
             outline: none;
@@ -155,9 +125,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
             padding: 0;
             min-width: 0;
+             font-family: "Sahitya", Helvetica, Arial, sans-serif; 
         }
         .custom-input input:focus {
-            color: #E9A863;
+            color: #131212ff;
+            
         }
         .registration-form button {
             background-color: #E9A863;
@@ -232,38 +204,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="custom-input">
                 <div class="icon usuario" aria-hidden="true"></div>
-                <div class="title">Usuário:</div>
-                <input type="text" name="usuario" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon senha" aria-hidden="true"></div>
-                <div class="title">Senha:</div>
-                <input type="password" name="senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon email" aria-hidden="true"></div>
-                <div class="title">E-mail:</div>
-                <input type="email" name="email" value="<?= htmlspecialchars($email) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="email" name="email" placeholder="E-mail" value="<?= htmlspecialchars($email) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon nome-livro" aria-hidden="true"></div>
-                <div class="title">Nome do livro:</div>
-                <input type="text" name="nome-livro" value="<?= htmlspecialchars($nomeLivro) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="nome-livro" placeholder="Nome do livro" value="<?= htmlspecialchars($nomeLivro) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon sinopse" aria-hidden="true"></div>
-                <div class="title">Sinopse:</div>
-                <input type="text" name="sinopse" value="<?= htmlspecialchars($sinopse) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="sinopse" placeholder="Sinopse" value="<?= htmlspecialchars($sinopse) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon nome-autor" aria-hidden="true"></div>
-                <div class="title">Autor(a):</div>
-                <input type="text" name="autor" value="<?= htmlspecialchars($autor) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="autor" placeholder="Autor(a)" value="<?= htmlspecialchars($autor) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <?php if (!$success): ?>
