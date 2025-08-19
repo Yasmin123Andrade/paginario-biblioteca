@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 
-/* Faz o body ocupar toda a altura e usar flex */
 html, body {
   height: 100%;
 }
@@ -25,7 +24,6 @@ body {
   flex-direction: column;
 }
 
-/* Main ocupa o espaço restante */
 main {
   flex: 1;
 }
@@ -99,17 +97,17 @@ header {
 }
 
 footer.main-footer a {
-  color: #fff;          /* garante que o texto seja branco */
+  color: #fff;         
   text-decoration: none;
   margin: 0 6px;
 }
 
 footer.main-footer a:hover {
-  color: #fff;          /* mantém branco ao passar o mouse */
-  text-decoration: underline; /* opcional: efeito de sublinhado ao passar o mouse */
+  color: #fff;          
+  text-decoration: underline; 
 }
 
-/* Responsividade para telas menores */
+
 @media (max-width: 768px) {
   .book-details {
     flex-direction: column;
