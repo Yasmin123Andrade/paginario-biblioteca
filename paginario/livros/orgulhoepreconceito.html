@@ -4,103 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Livro de Soror Saudade — Florbela Espanca</title>
- <style>
-
+  <style>
     /* Reset de estilos */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Estilos gerais */
-body {
-  font-family: 'Georgia', serif;
-  background: #86541c;
-  color: #333;
-  line-height: 1.6;
-}
+    /* Estilos gerais */
+    html, body {
+      height: 100%;
+    }
 
-/* Cabeçalho */
-header {
-  background: url('img/fundoimagem.png') no-repeat center center;
-  background-size: cover; /* faz a imagem cobrir toda a área */
-  color: #fff;
-  width: 100%;
-  min-height: 25vh; /* altura ajustável até começar a div branca */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* Seção de detalhes do livro */
-.book-details {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  background-color:  #ffd093ff;
-  margin: -5vh 2rem 2rem 2rem; /* margem negativa para sobrepor um pouco o header */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
-}
+    main {
+      flex: 1; /* faz o main ocupar o espaço restante */
+    }
 
-.book-cover img {
-  width: 300px;
-  height: auto; /* mantém proporção */
-  border-radius: 8px;
-  margin-right: 2rem;
-}
+    /* Cabeçalho */
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.book-info {
-  max-width: 600px;
-}
+    /* Seção de detalhes do livro */
+    .book-details {
+      display: flex;
+      flex-wrap: wrap; /* responsivo para telas menores */
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      background-color:  #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
 
-.book-info h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+    .book-cover img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 2rem;
+    }
 
-.book-info .author {
-  font-style: italic;
-  margin-bottom: 1rem;
-}
+    .book-info {
+      max-width: 600px;
+    }
 
-.book-info .description {
-  margin-bottom: 1rem;
-}
+    .book-info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.book-info .publication-info,
-.book-info .isbn {
-  margin-bottom: 1rem;
-}
+    .book-info .author {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
 
-.book-info .download-links a {
-  display: inline-block;
-  background-color: #965603ff;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-}
+    .book-info .description {
+      margin-bottom: 1rem;
+    }
 
-.book-info .download-links a:hover {
-  background-color: #7a3e1cff;
-}
+    .book-info .publication-info,
+    .book-info .isbn {
+      margin-bottom: 1rem;
+    }
 
-/* Rodapé */
-footer {
- background-color: #804D07;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  width: 100%;
-  position: relative; /* fixado mas não sobreposto ao conteúdo */
-}
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
 
- </style>
+    .book-info .download-links a:hover {
+      background-color: #7a3e1cff;
+    }
+
+    /* Footer */
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0; /* não deixa encolher */
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .book-details {
+        flex-direction: column;
+        align-items: center;
+        margin: -5vh 1rem 2rem 1rem;
+      }
+
+      .book-cover img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 80%;
+      }
+
+      .book-info {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -116,14 +151,14 @@ footer {
         <h1>Orgulho e Preconceito</h1>
         <p class="author">Jane Austen</p>
         <p class="description">
-        SINOPSE: Quando Elizabeth Bennet conhece o cobiçado Fitzwilliam Darcy, não demora a
-         julgá-lo arrogante e presunçoso, afinal ele parece desprezar sua companhia,
-         assim como a de todo mundo, demonstrando um temperamento rude e orgulhoso,
+          SINOPSE: Quando Elizabeth Bennet conhece o cobiçado Fitzwilliam Darcy, não demora a
+          julgá-lo arrogante e presunçoso, afinal ele parece desprezar sua companhia,
+          assim como a de todo mundo, demonstrando um temperamento rude e orgulhoso,
           impossível de agradar. Após descobrir o envolvimento do sr. Darcy nos
-           eventos que separaram sua querida irmã Jane do jovem Bingley, Elizabeth 
-           vê seu ódio pelo detestável cavalheiro crescer. Uma surpreendente 
-           reviravolta, porém, poderá provar que as primeiras impressões nem sempre 
-           são definitivas.
+          eventos que separaram sua querida irmã Jane do jovem Bingley, Elizabeth
+          vê seu ódio pelo detestável cavalheiro crescer. Uma surpreendente
+          reviravolta, porém, poderá provar que as primeiras impressões nem sempre
+          são definitivas.
         </p>
         <p class="publication-info">
           <strong>Data de Publicação:</strong> 1813<br>
@@ -139,8 +174,10 @@ footer {
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Projecto Adamastor</p>
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
   </footer>
 </body>
 </html>
