@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro de Soror Saudade — Florbela Espanca</title>
+ <style>
+
+    /* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+  font-family: 'Georgia', serif;
+  background: #86541c;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+  background: url('img/fundoimagem.png') no-repeat center center;
+  background-size: cover; /* faz a imagem cobrir toda a área */
+  color: #fff;
+  width: 100%;
+  min-height: 25vh; /* altura ajustável até começar a div branca */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Seção de detalhes do livro */
+.book-details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color:  #ffd093ff;
+  margin: -5vh 2rem 2rem 2rem; /* margem negativa para sobrepor um pouco o header */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+}
+
+.book-cover img {
+  width: 300px;
+  height: auto; /* mantém proporção */
+  border-radius: 8px;
+  margin-right: 2rem;
+}
+
+.book-info {
+  max-width: 600px;
+}
+
+.book-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-info .author {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.book-info .description {
+  margin-bottom: 1rem;
+}
+
+.book-info .publication-info,
+.book-info .isbn {
+  margin-bottom: 1rem;
+}
+
+.book-info .download-links a {
+  display: inline-block;
+  background-color: #965603ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.book-info .download-links a:hover {
+  background-color: #7a3e1cff;
+}
+
+/* Rodapé */
+footer {
+ background-color: #804D07;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  position: relative; /* fixado mas não sobreposto ao conteúdo */
+}
+
+ </style>
+</head>
+<body>
+  <header>
+    <h1>Informações do Livro</h1>
+  </header>
+
+  <main>
+    <section class="book-details">
+      <div class="book-cover">
+        <img src="OrgulhoePreconceito.png" alt="Livro de Soror Saudade">
+      </div>
+      <div class="book-info">
+        <h1>Orgulho e Preconceito</h1>
+        <p class="author">Jane Austen</p>
+        <p class="description">
+        SINOPSE: Quando Elizabeth Bennet conhece o cobiçado Fitzwilliam Darcy, não demora a
+         julgá-lo arrogante e presunçoso, afinal ele parece desprezar sua companhia,
+         assim como a de todo mundo, demonstrando um temperamento rude e orgulhoso,
+          impossível de agradar. Após descobrir o envolvimento do sr. Darcy nos
+           eventos que separaram sua querida irmã Jane do jovem Bingley, Elizabeth 
+           vê seu ódio pelo detestável cavalheiro crescer. Uma surpreendente 
+           reviravolta, porém, poderá provar que as primeiras impressões nem sempre 
+           são definitivas.
+        </p>
+        <p class="publication-info">
+          <strong>Data de Publicação:</strong> 1813<br>
+          <strong>eBook Disponível desde:</strong> 2025<br>
+          <strong>N° de páginas:</strong> 240
+        </p>
+
+        <div class="download-links">
+          <a href="orgulho-e-preconceito.epub">Baixar EPUB</a>
+          <a href="orgulho-e-preconceito.pdf">Baixar PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Projecto Adamastor</p>
+  </footer>
+</body>
+</html>
