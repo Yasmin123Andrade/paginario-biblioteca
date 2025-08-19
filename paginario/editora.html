@@ -7,227 +7,242 @@
   <link rel="stylesheet" href="img">
   <style>
     * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: Georgia, serif;
-  background-color: #ecb87f;
-}
+    body {
+      font-family: Georgia, serif;
+      background-color: #ecb87f;
+    }
 
-header {
-    background: #86541c;
-    text-align: center;
-    position: relative;
-    padding: 5px 0;
-    height: 40px;
-}
+    header {
+      background: #86541c;
+      text-align: center;
+      position: relative;
+      padding: 5px 0;
+      height: 40px;
+    }
 
-.menu-icon img {
-  width: 40px;
-  height: 40px;
-}
+    .menu-icon img {
+      width: 40px;
+      height: 40px;
+    }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #86541c;
-  padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #86541c;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.side-menu ul li {
-  margin: 20px 0;
-  text-align: center;
-}
+    .side-menu ul li {
+      margin: 20px 0;
+      text-align: center;
+    }
 
-.side-menu ul li a {
-  color: #eab97f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-}
+    .side-menu ul li a {
+      color: #eab97f;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
 
-.side-menu.open {
-  left: 0; 
-}
+    .side-menu.open {
+      left: 0; 
+    }
 
-.menu-icon {
-  cursor: pointer;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
+    .menu-icon {
+      cursor: pointer;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
 
-.close-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .close-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.close-icon img {
-  width: 100%;
-  height: 100%;
-}
+    .close-icon img {
+      width: 100%;
+      height: 100%;
+    }
 
-h1 {
-  font-size: 30px;
-  margin: 0;
-  color: #fff;
-}
+    h1 {
+      font-size:30px;
+      margin: 0;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+    }
 
-h2 {
-  margin: 5px 0 20px;
-  font-size: 22px;
-  text-transform: uppercase;
-  color: #E9A863;
-}
+    h2 {
+      margin: 5px 0 20px;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #562f05;
+    }
 
-.publisher-banner {
-    background: url('img/image.png') no-repeat center top;
-    color: #fff;
-    background-size: cover;
-    height: 80px;
-    margin-bottom: 10px;
-    width:100vw;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
+    .publisher-banner {
+      background: url('img/image.png') no-repeat center top;
+      color: #fff;
+      background-size: cover;
+      height: 80px;
+      margin-bottom: 10px;
+      width:100vw;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease; 
+    }
 
-.icon-wrapper {
-  background-color: #3d2815;
-  border-radius: 50%;
-  padding: 10px;
-  position: absolute;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-    height: 60px;
-}
+    .publisher-banner:active {
+      transform: scale(0.98);
+    }
 
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 20px;
-  border-radius: 8px;
-}
+    .icon-wrapper {
+      background-color: #3d2815;
+      border-radius: 50%;
+      padding: 10px;
+      position: absolute;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+    }
 
-.book-card {
-  text-align: center;
-}
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      padding: 20px;
+      border-radius: 8px;
+      justify-items: center;
+    }
 
-.book-card h3 {
-  font-family: 'Georgia', serif;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #5b3d1f;
-}
+    .book-card {
+      text-align: center;
+    }
 
-.cover-container {
-    position: relative;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
+    .book-card h3 {
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #5b3d1f;
+    }
 
-.cover-container:hover {
-    transform: scale(1.1); 
-    z-index: 1; 
-}
+    .cover-container {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
 
+    .cover-container:hover {
+      transform: scale(1.1);
+      z-index: 1;
+    }
 .cover-container img {
-    width: 140px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: box-shadow 0.3s ease;
+  width: 240px;   
+  height: 360px; 
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, box-shadow 0.3s ease;
+  object-fit: cover; 
 }
 
-.cover-container:hover img {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+    .cover-container:hover img {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
 
-.badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background-color: #e63946;  
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 4px 6px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
+    .cover-container:active {
+      transform: scale(0.95) rotate(-2deg);
+    }
 
-.main-footer {
-  text-align: center;
-  padding: 14px 0;
-  background-color: #a56e1a;
-  color: #fff;
-  font-size: 0.9rem;
-}
+    .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background-color: #e63946;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 4px 6px;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
 
-.main-footer a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 6px;
-}
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+    }
 
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Top bar -->
-  <header>
-        <h2>FILTRO DE PESQUISA</h2>
-        <div class="menu-icon">   
-          <img src="img/component 1.svg" alt="Abrir Menu" />
-        </div>
-    </header>
-    <nav id="side-menu" class="side-menu">
-          <div class="close-icon">
-    <img src="img/component 1.svg" alt="Fechar Menu"/>
-  </div>
-  <ul>
-    <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
-    <li><a style="color: peru;">------------------------------</a></li>
-    <li><a style="color: antiquewhite;">Filtros</a></li>
-    <li><a href="genero-literario.html">Gênero</a></li>
-    <li><a href="autores.php">Autor</a></li>
-    <li><a href="editora.html">Editora</a></li>
-    <li><a href="#">Faixa Etária</a></li>
-    <li><a style="color: peru;">------------------------------</a></li>
-    <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
-     <li><a style="color: peru;">------------------------------</a></li>
-    <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
-  </ul>
-</nav>
 
-  <!-- Seção "Editora" com fundo de estante -->
+  <header>
+   
+    <h1>FILTRO DE PESQUISA</h1>
+    <div class="menu-icon">   
+      <img src="img/component 1.svg" alt="Abrir Menu" />
+    </div>
+  </header>
+
+  <nav id="side-menu" class="side-menu">
+    <div class="close-icon">
+      <img src="img/component 1.svg" alt="Fechar Menu"/>
+    </div>
+    <ul>
+      <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a style="color: antiquewhite;">Filtros</a></li>
+      <li><a href="genero-literario.html">Gênero</a></li>
+      <li><a href="autores.php">Autor</a></li>
+      <li><a href="editora.html">Editora</a></li>
+      <li><a href="#">Faixa Etária</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+      <li><a style="color: peru;">------------------------------</a></li>
+      <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+    </ul>
+  </nav>
+
+ 
   <section class="publisher-section">
     <div class="publisher-banner">
       <div class="icon-wrapper">
@@ -236,112 +251,354 @@ h2 {
       <h1>EDITORA</h1>
     </div>
 
-    <!-- Grade de livros -->
     <div class="book-grid">
-      <!-- Livro 1 -->
+    
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>Memórias Póstumas de Brás Cuba</h3>
+          <h2>Memórias Póstumas de Brás Cuba</h2><br>
           <div class="cover-container">
             <img src="./img/memoriasPostumas.png" alt="Memórias Póstumas de Brás Cuba">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 2 -->
+     
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>Seus Trinta Melhores Contos</h3>
+          <h2>Seus Trinta Melhores Contos</h2><br>
           <div class="cover-container">
             <img src="./img/trintaMelhores.png" alt="Seus Trinta Melhores Contos">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 3 -->
+    
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>Dom Casmurro</h3>
+          <h2>Dom Casmurro</h2><br><br>
           <div class="cover-container">
             <img src="./img/domCasmurro.png" alt="Dom Casmurro">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 4 -->
+    
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>O Cortiço</h3>
+          <h2>O Cortiço</h2><br><br>
           <div class="cover-container">
             <img src="./img/cortico.png" alt="O Cortiço">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 5 -->
+      
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>A Mão e a Luva</h3>
+          <h2>A Mão e a Luva</h2><br>
           <div class="cover-container">
             <img src="./img/maoLuva.png" alt="A Mão e a Luva">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 6 -->
+      
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>Quincas Borba</h3>
+          <h2>Quincas Borba</h2><br>
           <div class="cover-container">
             <img src="./img/quincasBorba.png" alt="Quincas Borba">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 7 -->
+    
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>O Alienista</h3>
+          <h2>O Alienista</h2><br>
           <div class="cover-container">
             <img src="./img/alienista.png" alt="O Alienista">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
-      <!-- Livro 8 -->
+    
       <div class="book-card">
         <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
-          <h3>Helena</h3>
+          <h2>Helena</h2><br>
           <div class="cover-container">
             <img src="./img/helena.png" alt="Helena">
             <span class="badge">16+</span>
           </div>
         </a>
       </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="./img/1984.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="./img/RomeueJulieta.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="./img/Oslusiadas.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/OPianista_.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/cortico.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/DomQuixote.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/OrgulhoePreconceito.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/OGuarani.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/asviagens.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/cemanosdesolidao.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+         <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/iliada.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+         <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/Iracema.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+         <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/os-miseraveis-14.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/adaoeeva.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/odisseia.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/senhora.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+         <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/sertoes_.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/amoreperdicao.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/ametamorfose.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/osmaias.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+
+
+         <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/per.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/amoreninha.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/aescrava.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="link-do-livro.html" style="text-decoration: none; color: inherit;">
+          <h2>O Alienista</h2><br>
+          <div class="cover-container">
+            <img src="img/osventosruivantes.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- Rodapé -->
   <footer class="main-footer">
     <a href="#">Política de Privacidade</a> |
     <a href="#">Termos de Uso</a> |
     <span>Todos os direitos reservados (BR)</span>
   </footer>
 
-    <script>
-  const menuIcon = document.querySelector('.menu-icon');
-const sideMenu = document.getElementById('side-menu');
-const closeIcon = document.querySelector('.close-icon');
+  <script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const sideMenu = document.getElementById('side-menu');
+    const closeIcon = document.querySelector('.close-icon');
 
-menuIcon.addEventListener('click', () => {
-  sideMenu.classList.add('open'); 
-});
+    menuIcon.addEventListener('click', () => {
+      sideMenu.classList.add('open'); 
+    });
 
-closeIcon.addEventListener('click', () => {
-  sideMenu.classList.remove('open');
-});
-
-</script>
+    closeIcon.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+    });
+  </script>
 
 </body>
 </html>
