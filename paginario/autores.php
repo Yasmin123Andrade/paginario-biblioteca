@@ -169,24 +169,30 @@ h2 {
       border-radius: 50%;
     }
 
-    footer {
-      background-color: #7a4a00;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      font-size: 13px;
-    }
+footer {
+    background: #86541c;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0 14px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.08em;
+    letter-spacing: .02em;
+}
 
-    footer a {
-      color: #ffcc80;
-      margin: 0 10px;
-      text-decoration: none;
-    }
+footer a {
+    color: #E9A863;
+    margin: 0 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #E9A863;
+}
 
-    footer span {
-      display: inline-block;
-      margin-top: 5px;
-    }
+footer span {
+    color: #E9A863;
+    margin-left: 18px;
+}
   </style>
 </head>
 <body>
