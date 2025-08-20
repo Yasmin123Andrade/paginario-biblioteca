@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Carta de Pero Vaz de Caminha — Edição Modernizada e Semidiplomática</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; }
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .book-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 2rem;
+      background-color: #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
+    .book-cover img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 2rem;
+      margin-left: 0;
+    }
+    .book-info { max-width: 680px; }
+    .book-info h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .book-info .author { font-style: italic; margin-bottom: 1rem; }
+    .book-info .description { margin-bottom: 1rem; text-align: justify; }
+    .book-info .publication-info { margin-bottom: 1rem; }
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0.25rem 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .book-info .download-links a:hover { background-color: #7a3e1cff; }
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .main-footer a { color: #fff; text-decoration: none; margin: 0 6px; }
+    @media (max-width: 768px) {
+      .book-details { flex-direction: column; align-items: center; margin: -5vh 1rem 2rem 1rem; }
+      .book-cover img { margin-right: 0; margin-bottom: 1rem; width: 80%; }
+      .book-info { max-width: 100%; text-align: center; }
+      .book-info .description { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informações do Livro</h1>
+  </header>
+
+  <main>
+    <section class="book-details">
+      <div class="book-cover">
+        <img src="acartapero.png" alt="A Carta de Pero Vaz de Caminha — Edição Modernizada e Semidiplomática" />
+      </div>
+
+      <div class="book-info">
+        <h1>A Carta de Pero Vaz de Caminha</h1>
+        <p class="author">Pero Vaz de Caminha (Autor), Maria de Fátima Nunes Madeira (Compiladora), Marcelo Módolo (Compilador)</p>
+
+        <p class="description">
+          Um leitor contemporâneo poderia perguntar por que ler <em>A Carta de Pero Vaz de Caminha</em>, um manuscrito com mais de quinhentos anos. 
+          Este documento foi produzido originalmente para informar o rei de Portugal sobre o achamento da Ilha da Vera Cruz — o Brasil — e constitui 
+          o primeiro registro em português lavrado em terras que mais tarde fariam parte do território brasileiro.  
+          A descrição de Caminha sobre a terra, os habitantes, a fauna e a flora fornece um retrato vívido do tempo e do lugar, sendo ao mesmo tempo documento histórico e texto literário.  
+          Esta edição reúne duas versões: uma modernizada, com atualização de forma e notas explicativas para facilitar a leitura contemporânea; e uma semidiplomática, 
+          que apresenta uma transcrição fiel às características gráficas e linguísticas do manuscrito. A introdução, notas e estabelecimento do texto foram organizados por Marcelo Módolo e Maria de Fátima Nunes Madeira, com coordenação de José de Paula Ramos Jr.
+        </p>
+
+        <p class="publication-info">
+          <strong>Editora:</strong> Ateliê Editorial<br>
+          <strong>Data da Publicação:</strong> 6 outubro 2023<br>
+          <strong>Edição:</strong> Edição Modernizada e Semidiplomática<br>
+          <strong>Idioma:</strong> Português<br>
+          <strong>Número de páginas:</strong> 120
+        </p>
+
+        <div class="download-links">
+          <a href="cartapero.epub">Baixar EPUB</a>
+          <a href="cartapero.pdf">Baixar PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
+</body>
+</html>
