@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Casmurro — Machado de Assis</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .book-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      background-color: #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
+
+    .book-cover img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 2rem;
+    }
+
+    .book-info {
+      max-width: 600px;
+    }
+
+    .book-info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info .author {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .book-info .description {
+      margin-bottom: 1rem;
+    }
+
+    .book-info .publication-info {
+      margin-bottom: 1rem;
+    }
+
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .book-info .download-links a:hover {
+      background-color: #7a3e1cff;
+    }
+
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 768px) {
+      .book-details {
+        flex-direction: column;
+        align-items: center;
+        margin: -5vh 1rem 2rem 1rem;
+      }
+
+      .book-cover img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 80%;
+      }
+
+      .book-info {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informações do Livro</h1>
+  </header>
+
+  <main>
+    <section class="book-details">
+      <div class="book-cover">
+        <img src="domCasmurro.png" alt="Dom Casmurro — Machado de Assis">
+      </div>
+      <div class="book-info">
+        <h1>Dom Casmurro</h1>
+        <p class="author">Machado de Assis</p>
+        <p class="description">
+          Poucos romances examinam com tanta sutileza as artimanhas do ciúme como <em>Dom Casmurro</em>. 
+          Publicado em 1899, o livro permanece ainda hoje como um dos mais fascinantes estudos da traição. 
+          Aliás, como o leitor mais atento perceberá, são supostamente duas: a de Capitu, exposta pelo marido Bentinho, 
+          e a própria narrativa sobre como Bentinho modifica os fatos para corroborar suas suspeitas matrimoniais.
+          <br><br>
+          Tudo isso é narrado com graça e inteligência num romance que jamais parece esgotar suas possibilidades de leitura. 
+          Críticos como Roberto Schwarz e Susan Sontag consideram a obra de Machado como um dos momentos mais altos da prosa ocidental do final do século XIX.
+        </p>
+        <p class="publication-info">
+          <strong>Ano de Publicação:</strong> 1997<br>
+          <strong>eBook Disponível desde:</strong> 2025<br>
+          <strong>N° de páginas:</strong> 216
+        </p>
+
+        <div class="download-links">
+          <a href="dom-casmurro.epub">Baixar EPUB</a>
+          <a href="dom-casmurro.pdf">Baixar PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
+</body>
+</html>

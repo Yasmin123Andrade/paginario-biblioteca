@@ -3,130 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Livro de Memórias Póstumas — Machado de Assis</title>
- <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <title>Memórias Póstumas de Brás Cubas — Machado de Assis</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html, body {
-  height: 100%;
-}
+    html, body {
+      height: 100%;
+    }
 
-body {
-  font-family: 'Georgia', serif;
-  background: #86541c;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-}
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
 
-main {
-  flex: 1;
-}
+    main {
+      flex: 1;
+    }
 
-header {
-  background: url('img/fundoimagem.png') no-repeat center center;
-  background-size: cover; 
-  color: #fff;
-  width: 100%;
-  min-height: 25vh; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.book-details {
-  display: flex;
-  flex-wrap: wrap; /* para responsividade */
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  background-color:  #ffd093ff;
-  margin: -5vh 2rem 2rem 2rem; 
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
-}
+    .book-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      background-color: #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
 
-.book-cover img {
-  width: 300px;
-  height: auto; 
-  border-radius: 8px;
-  margin-right: 2rem;
-}
+    .book-cover img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 2rem;
+    }
 
-.book-info {
-  max-width: 600px;
-}
+    .book-info {
+      max-width: 600px;
+    }
 
-.book-info h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+    .book-info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.book-info .author {
-  font-style: italic;
-  margin-bottom: 1rem;
-}
+    .book-info .author {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
 
-.book-info .description {
-  margin-bottom: 1rem;
-}
+    .book-info .description {
+      margin-bottom: 1rem;
+    }
 
-.book-info .publication-info,
-.book-info .isbn {
-  margin-bottom: 1rem;
-}
+    .book-info .publication-info {
+      margin-bottom: 1rem;
+    }
 
-.book-info .download-links a {
-  display: inline-block;
-  background-color: #965603ff;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-}
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
 
-.book-info .download-links a:hover {
-  background-color: #7a3e1cff;
-}
+    .book-info .download-links a:hover {
+      background-color: #7a3e1cff;
+    }
 
-footer.main-footer a {
-  color: #fff;         
-  text-decoration: none;
-  margin: 0 6px;
-}
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
 
-footer.main-footer a:hover {
-  color: #fff;          
-  text-decoration: underline; 
-}
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
 
+    @media (max-width: 768px) {
+      .book-details {
+        flex-direction: column;
+        align-items: center;
+        margin: -5vh 1rem 2rem 1rem;
+      }
 
-@media (max-width: 768px) {
-  .book-details {
-    flex-direction: column;
-    align-items: center;
-    margin: -5vh 1rem 2rem 1rem;
-  }
+      .book-cover img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 80%;
+      }
 
-  .book-cover img {
-    margin-right: 0;
-    margin-bottom: 1rem;
-    width: 80%;
-  }
-
-  .book-info {
-    max-width: 100%;
-    text-align: center;
-  }
-}
- </style>
+      .book-info {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -136,34 +138,32 @@ footer.main-footer a:hover {
   <main>
     <section class="book-details">
       <div class="book-cover">
-        <img src="memoriasPostumas.png" alt="Livro de Memórias Póstumas">
+        <img src="MemoriasPostumas.png" alt="Memórias Póstumas de Brás Cubas — Machado de Assis">
       </div>
       <div class="book-info">
         <h1>Memórias Póstumas de Brás Cubas</h1>
         <p class="author">Machado de Assis</p>
         <p class="description">
-          SINOPSE: Em 1881, Machado de Assis lançou aquele que seria um divisor de
-          águas não só em sua obra, mas na literatura brasileira: Memórias póstumas
-          de Brás Cubas. Ao mesmo tempo em que marca a fase mais madura do autor, o
-          livro é considerado a transição do romantismo para o realismo. Num primeiro
-          momento, a prosa fragmentária e livre de Memórias póstumas, misturando
-          elegância e abuso, refinamento e humor negro, causou estranheza, inclusive 
-          entre a crítica. Com o tempo, no entanto, o defunto autor que dedica sua 
-          obra ao verme que primeiro roeu as frias carnes de seu cadáver tornou-se 
-          um dos personagens mais populares da nossa literatura. Sua história, uma
-          celebração do nada que foi sua vida, foi transformada em filmes, peças e
-          HQs, e teve incontáveis edições no Brasil e no mundo, conquistando 
-          admiradores que vão de Susan Sontag a Woody Allen.
+          Em 1881, Machado de Assis lançou aquele que seria um divisor de águas não só em sua obra, 
+          mas na literatura brasileira: <em>Memórias póstumas de Brás Cubas</em>. Ao mesmo tempo em que marca a fase mais madura do autor, 
+          o livro é considerado a transição do romantismo para o realismo. 
+          Num primeiro momento, a prosa fragmentária e livre de <em>Memórias póstumas</em>, misturando elegância e abuso, refinamento e humor negro, 
+          causou estranheza, inclusive entre a crítica. 
+          <br><br>
+          Com o tempo, no entanto, o defunto autor que dedica sua obra ao verme que primeiro roeu as frias carnes de seu cadáver 
+          tornou-se um dos personagens mais populares da nossa literatura. 
+          Sua história, uma celebração do nada que foi sua vida, foi transformada em filmes, peças e HQs, e teve incontáveis edições no Brasil e no mundo, 
+          conquistando admiradores que vão de Susan Sontag a Woody Allen.
         </p>
         <p class="publication-info">
-          <strong>Data de Publicação:</strong>1881<br>
+          <strong>Data de Publicação:</strong> 1881<br>
           <strong>eBook Disponível desde:</strong> 2025<br>
           <strong>N° de páginas:</strong> 368
         </p>
 
         <div class="download-links">
-          <a href="Memórias Postumas de Brás Cubas - PDF.odt">Baixar EPUB</a>
-          <a href="Memórias Postumas de Brás Cubas - PDF.pdf">Baixar PDF</a>
+          <a href="memorias-postumas.epub">Baixar EPUB</a>
+          <a href="memorias-postumas.pdf">Baixar PDF</a>
         </div>
       </div>
     </section>
