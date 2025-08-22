@@ -26,24 +26,19 @@
       justify-content: center;
       align-items: center;
     }
-    .book-details {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 2rem;
-      background-color: #ffd093ff;
-      margin: -5vh 2rem 2rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
-    }
-    .book-cover img {
-      width: 300px;
-      height: auto;
-      border-radius: 8px;
-      margin-right: 2rem;
-      margin-left: 0;
-    }
+   .book-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* antes estava flex-start, agora centraliza verticalmente */
+  padding: 2rem;
+  background-color: #ffd093ff;
+  margin: -5vh 2rem 2rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+}
+
+    .book-cover img { width: 300px; height: auto; border-radius: 8px; margin-right: 2rem; }
     .book-info { max-width: 600px; }
     .book-info h1 { font-size: 2rem; margin-bottom: 0.5rem; }
     .book-info .author { font-style: italic; margin-bottom: 1rem; }
@@ -90,8 +85,9 @@
         <h1>Memórias de um Sargento de Milícias</h1>
         <p class="author">Manuel Antônio de Almeida</p>
         <p class="description">
-          Memórias de um Sargento de Milícias apresenta uma galeria de personagens dos mais diferentes tipos: o menino malandro, a alcoviteira, o barbeiro, o compadre, a comadre, o mestre de cerimônias, a cigana...  
-          O protagonista é o malandro Leonardo, filho de Leonardo-Pataca e Maria-da-Hortaliça, que vive praticando travessuras e se envolvendo em situações engraçadas e inesperadas.
+          Adentre o universo picaresco do Brasil do século XIX com <em>Memórias de um Sargento de Milícias</em>, obra-prima de Manuel Antônio de Almeida.  
+          O romance retrata figuras populares — o menino travesso, o barbeiro, a alcoviteira, o compadre, a comadre — compondo um painel vivo e irônico da sociedade carioca da época.  
+          O protagonista é Leonardo, filho de Leonardo-Pataca e Maria-da-Hortaliça, um jovem malandro que se envolve em aventuras cômicas e situações inesperadas.
         </p>
         <p class="publication-info">
           <strong>Editora:</strong> Principis<br>

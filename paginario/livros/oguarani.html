@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Guarani — José de Alencar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; }
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .book-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background-color: #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
+    .book-cover img { 
+      width: 300px; 
+      height: auto; 
+      border-radius: 8px; 
+      margin-right: 2rem; 
+    }
+    .book-info { max-width: 600px; }
+    .book-info h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .book-info .author { font-style: italic; margin-bottom: 1rem; }
+    .book-info .description { margin-bottom: 1rem; }
+    .book-info .publication-info { margin-bottom: 1rem; }
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .book-info .download-links a:hover { background-color: #7a3e1cff; }
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .main-footer a { color: #fff; text-decoration: none; margin: 0 6px; }
+    @media (max-width: 768px) {
+      .book-details { flex-direction: column; align-items: center; margin: -5vh 1rem 2rem 1rem; }
+      .book-cover img { margin-right: 0; margin-bottom: 1rem; width: 80%; }
+      .book-info { max-width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informações do Livro</h1>
+  </header>
+
+  <main>
+    <section class="book-details">
+      <div class="book-cover">
+        <img src="OGuarani.png" alt="O Guarani — José de Alencar">
+      </div>
+      <div class="book-info">
+        <h1>O Guarani</h1>
+        <p class="author">José de Alencar</p>
+        <p class="description">
+          <strong>O Guarani</strong> conta a história de Peri, um índio forte e leal da Nação Goitacá, e sua relação com a família de dom Antônio de Mariz, um fidalgo português.  
+          Peri é o protetor de Cecília, a bela filha de dom Antônio.  
+          Após a morte acidental de uma índia aimoré pelas mãos de dom Diogo, irmão de Cecília, a família corre perigo, pois a tribo busca vingança.  
+          Neste cenário, Ceci e sua família contarão com a coragem e a proteção de Peri, o bravo herói brasileiro de uma das mais importantes obras do Romantismo.
+        </p>
+        <p class="publication-info">
+          <strong>Editora:</strong> Principis<br>
+          <strong>Data da Publicação:</strong> 13 maio 2020<br>
+          <strong>Edição:</strong> 3ª<br>
+          <strong>Idioma:</strong> Português<br>
+          <strong>Número de páginas:</strong> 288
+        </p>
+
+        <div class="download-links">
+          <a href="bv000135.epub">Baixar EPUB</a>
+          <a href="o-guarani.pdf">Baixar PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
+</body>
+</html>
