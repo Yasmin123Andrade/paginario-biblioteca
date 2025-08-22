@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Os Miseráveis — Victor Hugo</title>
+  <style>
+    /* Reset de estilos */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Estilos gerais */
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #86541c;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: url('img/fundoimagem.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Seção de detalhes do livro */
+    .book-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      background-color: #ffd093ff;
+      margin: -5vh 2rem 2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
+    }
+
+    .book-cover img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 2rem;
+    }
+
+    .book-info {
+      max-width: 600px;
+    }
+
+    .book-info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info .author {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .book-info .price {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #7a3e1cff;
+    }
+
+    .book-info .description {
+      margin-bottom: 1rem;
+    }
+
+    .book-info .publication-info {
+      margin-bottom: 1rem;
+    }
+
+    .book-info .download-links a {
+      display: inline-block;
+      background-color: #965603ff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .book-info .download-links a:hover {
+      background-color: #7a3e1cff;
+    }
+
+    /* Footer */
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .book-details {
+        flex-direction: column;
+        align-items: center;
+        margin: -5vh 1rem 2rem 1rem;
+      }
+
+      .book-cover img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 80%;
+      }
+
+      .book-info {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informações do Livro</h1>
+  </header>
+
+  <main>
+    <section class="book-details">
+      <div class="book-cover">
+        <img src="71L28YvPobL._SY425_.jpg" alt="Capa do livro Os Miseráveis">
+      </div>
+      <div class="book-info">
+        <h1>Os Miseráveis</h1>
+        <p class="author">Victor Hugo</p>
+        <p class="description">
+          Um clássico da literatura mundial, esta obra é uma poderosa denúncia a todos os tipos de injustiça humana. 
+          Narra a emocionante história de Jean Valjean ― o homem que, por ter roubado um pão, é condenado a dezenove anos de prisão. 
+          <em>Os Miseráveis</em> é um livro inquietantemente religioso e político, com uma das narrativas mais envolventes já criadas.
+        </p>
+        <p class="publication-info">
+          <strong>Editora:</strong> Martin Claret<br>
+          <strong>Data da publicação:</strong> 7 outubro 2014<br>
+          <strong>Edição:</strong> 1ª<br>
+          <strong>Idioma:</strong> Português<br>
+          <strong>Número de páginas:</strong> 1511
+        </p>
+
+        <div class="download-links">
+          <a href="Os Miseraveis - Victor Hugo.epub">Baixar EPUB</a>
+          <a href="Os Miseraveis - Victor Hugo.pdf">Baixar PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
+</body>
+</html>
