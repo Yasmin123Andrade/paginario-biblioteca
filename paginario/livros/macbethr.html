@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Macbeth</title>
+  <title>Macbeth — William Shakespeare</title>
   <style>
-    /* Reset */
+    /* Reset de estilos */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Estilos gerais */
     html, body {
       height: 100%;
     }
 
     body {
       font-family: 'Georgia', serif;
-      background: #3c2a2a;
+      background: #86541c;
       color: #333;
       line-height: 1.6;
       display: flex;
@@ -41,21 +42,21 @@
       align-items: center;
     }
 
-    /* Detalhes do livro */
+    /* Seção de detalhes do livro */
     .book-details {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
       padding: 2rem;
-      background-color: #f5e1d4;
+      background-color: #ffd093ff;
       margin: -5vh 2rem 2rem 2rem;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(90, 40, 30, 0.9);
+      box-shadow: 0 4px 8px rgba(160, 54, 28, 0.93);
     }
 
     .book-cover img {
-      width: 300px;
+      width: 400px; /* aumentado */
       height: auto;
       border-radius: 8px;
       margin-right: 2rem;
@@ -85,7 +86,7 @@
 
     .book-info .download-links a {
       display: inline-block;
-      background-color: #6d2b2b;
+      background-color: #965603ff;
       color: #fff;
       padding: 0.5rem 1rem;
       margin: 0.5rem 0;
@@ -95,14 +96,14 @@
     }
 
     .book-info .download-links a:hover {
-      background-color: #501f1f;
+      background-color: #7a3e1cff;
     }
 
-    /* Rodapé */
+    /* Footer */
     .main-footer {
       text-align: center;
       padding: 14px 0;
-      background-color: #2b1a1a;
+      background-color: #a56e1a;
       color: #fff;
       font-size: 0.9rem;
       flex-shrink: 0;
@@ -125,7 +126,7 @@
       .book-cover img {
         margin-right: 0;
         margin-bottom: 1rem;
-        width: 80%;
+        width: 80%; /* continua adaptável no celular */
       }
 
       .book-info {
@@ -143,28 +144,30 @@
   <main>
     <section class="book-details">
       <div class="book-cover">
-        <img src="Macbeth.jpg" alt="Capa do livro Macbeth">
+        <img src="mac.png" alt="Capa do livro Macbeth">
       </div>
       <div class="book-info">
         <h1>Macbeth</h1>
-        <p class="author">William Shakespeare (Autor)</p>
-        
+        <p class="author">William Shakespeare</p>
         <p class="description">
-          Considerada uma das obras mais sombrias e poderosas de William Shakespeare, esta narrativa clássica mostra Macbeth e Banquo, seu amigo, retornando de uma guerra pelo reinado da Escócia, depois de retumbante vitória. Na estrada eles se deparam com três feiticeiras, que realizam surpreendentes previsões. De acordo com as irmãs, símbolos aqui das três tecelãs do destino humano, o protagonista se tornará Barão de Cawdor e, futuramente, o novo soberano. Quanto a Banquo, será o progenitor de reis. <br><br>
+          Considerada uma das obras mais sombrias e poderosas de William Shakespeare, esta narrativa clássica mostra Macbeth e Banquo, seu amigo, retornando de uma guerra pelo reinado da Escócia, depois de retumbante vitória.  
+          Na estrada eles se deparam com três feiticeiras, que realizam surpreendentes previsões. De acordo com as irmãs, símbolos aqui das três tecelãs do destino humano, o protagonista se tornará Barão de Cawdor e, futuramente, o novo soberano. Quanto a Banquo, será o progenitor de reis.
+        </p>
+        <p class="description">
           Macbeth foi publicada pela primeira vez em 1623, possivelmente a partir de uma transcrição de alguma performance específica, e adaptada para cinema, televisão, ópera, romances, histórias em quadrinhos e outras mídias.
         </p>
 
         <p class="publication-info">
           <strong>Editora:</strong> Principis<br>
-          <strong>Data da Publicação:</strong> 22 abril 2021<br>
+          <strong>Data de Publicação:</strong> 22 abril 2021<br>
           <strong>Edição:</strong> Texto integral adaptado em prosa<br>
           <strong>Idioma:</strong> Português<br>
-          <strong>Número de páginas:</strong> 128
+          <strong>N° de páginas:</strong> 136
         </p>
 
         <div class="download-links">
-          <a href="macbethr.epub">Baixar EPUB</a>
-          <a href="macbethr.pdf">Baixar PDF</a>
+          <a href="bn000200.epub">Baixar EPUB</a>
+          <a href="bn000200.pdf">Baixar PDF</a>
         </div>
       </div>
     </section>
