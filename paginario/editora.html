@@ -351,7 +351,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       <li><a href="genero-literario.html">Gênero</a></li>
       <li><a href="autores.php">Autor</a></li>
       <li><a href="editora.html">Editora</a></li>
-      <li><a href="faixaetaria.php">Faixa Etária</a></li>
+      <li><a href="faixaetaria.html">Faixa Etária</a></li>
       <li><a style="color: peru;">------------------------------</a></li>
       <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
       <li><a style="color: peru;">------------------------------</a></li>
