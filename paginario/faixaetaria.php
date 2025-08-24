@@ -310,7 +310,7 @@ header input[type="text"] {
   <h1>FILTRO DE PESQUISA</h1>
 
  <div class="search-container">
-  <input type="text" id="myInput" placeholder="Pesquisar Autor(a)..." title="Digite o nome do Autor(a)">
+  <input type="text" id="myInput" placeholder="Pesquisar Gênero..." title="Digite o Gênero">
   </button>
 </div>
 </header>
@@ -351,7 +351,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       <li><a href="genero-literario.html">Gênero</a></li>
       <li><a href="autores.php">Autor</a></li>
       <li><a href="editora.html">Editora</a></li>
-      <li><a href="faixaetaria.php">Faixa Etária</a></li>
+      <li><a href="#">Faixa Etária</a></li>
       <li><a style="color: peru;">------------------------------</a></li>
       <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
       <li><a style="color: peru;">------------------------------</a></li>
@@ -365,14 +365,14 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       <div class="icon-wrapper">
         <img src="./img/paginario.png" alt="Logo Paginário" class="book-icon" style="width: 50px; height: 50px;">
       </div>
-      <h1>AUTORES</h1>
+      <h1>GÊNERO</h1>
     </div>
 
     <div class="book-grid">
     
       <div class="book-card">
         <a href="livros/memoriaspostumas.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>Memórias Póstumas de Brás Cubas</h2><br>
           <div class="cover-container">
             <img src="./img/memoriasPostumas.png" alt="Memórias Póstumas de Brás Cuba">
             <span class="badge">16+</span>
@@ -382,7 +382,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
      
       <div class="book-card">
         <a href="livros/melhorescontos.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br><br>
+          <h2>Seus Trinta Melhores Contos </h2><br><br>
           <div class="cover-container">
             <img src="./img/trintaMelhores.png" alt="Seus Trinta Melhores Contos">
             <span class="badge">14+</span>
@@ -392,7 +392,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
     
       <div class="book-card">
         <a href="livros/domcasmurro.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br><br>
+          <h2>Dom Casmurro</h2><br><br>
           <div class="cover-container">
             <img src="./img/domCasmurro.png" alt="Dom Casmurro">
             <span class="badge">14+</span>
@@ -402,7 +402,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
     
       <div class="book-card">
         <a href="livros/ocortico.html" style="text-decoration: none; color: inherit;">
-          <h2> Aluísio de Azevedo </h2><br><br>
+          <h2> O Cortiço</h2><br><br>
           <div class="cover-container">
             <img src="./img/cortico.png" alt="O Cortiço">
             <span class="badge">16+</span>
@@ -412,7 +412,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       
       <div class="book-card">
         <a href="livros/maoeluva.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>A Mão e a Luva</h2><br>
           <div class="cover-container">
             <img src="./img/maoLuva.png" alt="A Mão e a Luva">
             <span class="badge">14+</span>
@@ -422,7 +422,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       
       <div class="book-card">
         <a href="livros/quincasborba.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>Quincas Borbas</h2><br>
           <div class="cover-container">
             <img src="./img/quincasBorba.png" alt="Quincas Borba">
             <span class="badge">12+</span>
@@ -432,7 +432,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
     
       <div class="book-card">
         <a href="livros/oalienista.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>O Alienista</h2><br>
           <div class="cover-container">
             <img src="./img/alienista.png" alt="O Alienista">
             <span class="badge">16+</span>
@@ -442,7 +442,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
     
       <div class="book-card">
         <a href="livros/helena.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>Helena</h2><br>
           <div class="cover-container">
             <img src="./img/helena.png" alt="Helena">
             <span class="badge">16+</span>
@@ -452,7 +452,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/1984.html" style="text-decoration: none; color: inherit;">
-          <h2>George Orwell</h2><br><br>
+          <h2>1984</h2><br><br>
           <div class="cover-container">
             <img src="./img/1984.jpg" alt="1984">
             <span class="badge">16+</span>
@@ -462,7 +462,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/RomeueJulieta.html" style="text-decoration: none; color: inherit;">
-          <h2> William Shakespeare</h2><br><br>
+          <h2> Romeu e Julieta</h2><br><br>
           <div class="cover-container">
             <img src="./img/RomeueJulieta.jpg" alt="Romeu e Julieta">
             <span class="badge">14+</span>
@@ -471,7 +471,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       </div>
 <div class="book-card">
         <a href="livros/Oslusiadas.html" style="text-decoration: none; color: inherit;">
-          <h2>Luís de Camões</h2><br><br>
+          <h2>Os Lusíadas</h2><br><br>
           <div class="cover-container">
             <img src="./img/Oslusiadas.jpg" alt="Os Lusíadas">
             <span class="badge">16+</span>
@@ -481,7 +481,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/sargento.html" style="text-decoration: none; color: inherit;">
-          <h2>Manuel Antônio de Almeida</h2><br>
+          <h2>Memórias de um Sargento de Milícias</h2><br>
           <div class="cover-container">
             <img src="img/sargento.jpg" alt="O Sargento">
             <span class="badge">14+</span>
@@ -491,7 +491,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/arazao.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br>
+          <h2>Razão e Sensibilidade</h2><br>
           <div class="cover-container">
             <img src="img/razao.jpg" alt="Razão e Sensibilidade">
             <span class="badge">16+</span>
@@ -501,7 +501,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
       <div class="book-card">
         <a href="livros/DomQuixote.html" style="text-decoration: none; color: inherit;">
-          <h2>Miguel de Cervantes</h2><br>
+          <h2>Dom Quixote</h2><br>
           <div class="cover-container">
             <img src="img/DomQuixote.png" alt="Dom Quixote">
             <span class="badge">16+</span>
@@ -511,7 +511,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
       <div class="book-card">
         <a href="livros/orgulhoepreconceito.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br>
+          <h2>Orgulho e Preconceito</h2><br>
           <div class="cover-container">
             <img src="img/OrgulhoePreconceito.png  "   alt="Orgulho e Preconceito">
       
@@ -522,7 +522,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/oguarani.html" style="text-decoration: none; color: inherit;">
-          <h2>José de Alencar</h2><br>
+          <h2>O Guarani</h2><br>
           <div class="cover-container">
             <img src="img/OGuarani.png" alt="O Guarani">
             <span class="badge">12+</span>
@@ -532,7 +532,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
 <div class="book-card">
         <a href="livros/asviagens.html" style="text-decoration: none; color: inherit;">
-          <h2>Jonathan Swift</h2><br>
+          <h2>As Viagens de Gulliver</h2><br>
           <div class="cover-container">
             <img src="img/asviagens.png" alt="As Viagens">
             <span class="badge">10+</span>
@@ -542,7 +542,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
       <div class="book-card">
         <a href="livros/amoreamizade.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br>
+          <h2>Amor e Amizade</h2><br>
           <div class="cover-container">
             <img src="img/amoreamizade.jpg" alt="Amor e Amizade">
             <span class="badge">16+</span>
@@ -553,7 +553,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
          <div class="book-card">
         <a href="livros/iliada.html" style="text-decoration: none; color: inherit;">
-          <h2>Homero</h2><br>
+          <h2>Ilíada</h2><br>
           <div class="cover-container">
             <img src="img/iliada.jpg" alt="Ilíada">
             <span class="badge">16+</span>
@@ -563,7 +563,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
          <div class="book-card">
         <a href="livros/Iracema.html" style="text-decoration: none; color: inherit;">
-          <h2>José de Alencar</h2><br>
+          <h2>Iracema</h2><br>
           <div class="cover-container">
             <img src="img/Iracema.png" alt="Iracema">
             <span class="badge">16+</span>
@@ -573,7 +573,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
          <div class="book-card">
         <a href="livros/osmiseraveis.html" style="text-decoration: none; color: inherit;">
-          <h2>Victor Hugo</h2><br>
+          <h2>Os Miseravéis</h2><br>
           <div class="cover-container">
             <img src="img/71L28YvPobL._SY425_.jpg" alt="O Alienista">
             <span class="badge">16+</span>
@@ -583,7 +583,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
   <div class="book-card">
         <a href="livros/adaoeeva.html" style="text-decoration: none; color: inherit;">
-          <h2>Machado de Assis</h2><br>
+          <h2>Adão e Eva</h2><br>
           <div class="cover-container">
             <img src="img/adaoeeva.png" alt="Adão e Eva">
             <span class="badge">14+</span>
@@ -593,7 +593,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/odisseia.html" style="text-decoration: none; color: inherit;">
-          <h2>Homero</h2><br>
+          <h2>Odisseia</h2><br>
           <div class="cover-container">
             <img src="img/odisseia.png" alt="Odisseia">
             <span class="badge">14+</span>
@@ -603,7 +603,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/senhora.html" style="text-decoration: none; color: inherit;">
-          <h2>José de Alencar</h2><br>
+          <h2>Senhora</h2><br>
           <div class="cover-container">
             <img src="img/senhora.jpg" alt="Senhora">
             <span class="badge">16+</span>
@@ -614,7 +614,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
          <div class="book-card">
         <a href="livros/sertoes.html" style="text-decoration: none; color: inherit;">
-          <h2>Euclides da Cunha</h2><br>
+          <h2>Os Sertões</h2><br>
           <div class="cover-container">
             <img src="img/sertoes_.jpg" alt="Os Sertões">
             <span class="badge">16+</span>
@@ -624,7 +624,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
   <div class="book-card">
         <a href="livros/amoreperdicao.html" style="text-decoration: none; color: inherit;">
-          <h2>Camilo Castelo Branco</h2><br>
+          <h2>Amor de Perdição</h2><br>
           <div class="cover-container">
             <img src="img/amoreperdicao.png" alt="Amor e Perdição">
             <span class="badge">16+</span>
@@ -634,7 +634,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/metamorfose.html" style="text-decoration: none; color: inherit;">
-          <h2>Frank Kafka</h2><br>
+          <h2>A Metamorfose</h2><br>
           <div class="cover-container">
             <img src="img/ametamorfose.png" alt="A Metamorfose">
             <span class="badge">16+</span>
@@ -644,7 +644,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/osmaias.html" style="text-decoration: none; color: inherit;">
-          <h2>Eca de Queirós</h2><br>
+          <h2>Os Maias</h2><br>
           <div class="cover-container">
             <img src="img/osmaias.png" alt="Os Maias">
             <span class="badge">16+</span>
@@ -657,7 +657,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
          <div class="book-card">
         <a href="livros/per.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br><br>
+          <h2>Persuasão</h2><br><br>
           <div class="cover-container">
             <img src="img/per.png" alt="Persuasão">
             <span class="badge">14+</span>
@@ -667,7 +667,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
   <div class="book-card">
         <a href="livros/amoreninha.html" style="text-decoration: none; color: inherit;">
-          <h2>Joaquim Manuel de Macedo</h2><br>
+          <h2>A Moreninha</h2><br><br>
           <div class="cover-container">
             <img src="img/amoreninha.png" alt="A Moreninha">
             <span class="badge">14+</span>
@@ -677,7 +677,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/aescrava.html" style="text-decoration: none; color: inherit;">
-          <h2>Bernardo Guimarães</h2><br><br>
+          <h2>A Escrava Isaura</h2><br><br>
           <div class="cover-container">
             <img src="img/aescrava.png" alt="A Escrava">
             <span class="badge">14+</span>
@@ -687,7 +687,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/osventosruivantes.html" style="text-decoration: none; color: inherit;">
-          <h2>Emile Bronte</h2><br><br>
+          <h2>O Morro dos Ventos Uivantes</h2><br>
           <div class="cover-container">
             <img src="img/osventosruivantes.jpg" alt="Os Ventos Ruivantes">
             <span class="badge">14+</span>
@@ -699,7 +699,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       
          <div class="book-card">
         <a href="livros/lady.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br>
+          <h2>Lady Susan</h2><br>
           <div class="cover-container">
             <img src="img/lady.jpg" alt="Lady">
             <span class="badge">16+</span>
@@ -709,7 +709,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
   <div class="book-card">
         <a href="livros/Abby.html" style="text-decoration: none; color: inherit;">
-          <h2>Jane Austen</h2><br>
+          <h2>Northanger Abby</h2><br>
           <div class="cover-container">
             <img src="img/Northanger Abbey _.jpg" alt="Abby">
             <span class="badge">16+</span>
@@ -719,7 +719,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/artepoetica.html" style="text-decoration: none; color: inherit;">
-          <h2>Aristóteles</h2><br>
+          <h2>Arte Poética</h2><br>
           <div class="cover-container">
             <img src="img/artepoetica.jpg" alt="Arte Poetica">
             <span class="badge">16+</span>
@@ -729,7 +729,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/omercadodeveneza.html" style="text-decoration: none; color: inherit;">
-          <h2>William Shakespeare</h2><br>
+          <h2>O Mercado de Veneza</h2><br>
           <div class="cover-container">
             <img src="img/mercador_de_veneza_.jpg" alt="Mercado de Veneza">
             <span class="badge">16+</span>
@@ -741,7 +741,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
       
          <div class="book-card">
         <a href="livros/macbethr.html" style="text-decoration: none; color: inherit;">
-          <h2>William Shakespeare</h2><br>
+          <h2>Macbethr</h2><br><br>
           <div class="cover-container">
             <img src="img/mac.png" alt="Macbethr">
             <span class="badge">16+</span>
@@ -751,7 +751,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
   <div class="book-card">
         <a href="livros/sofocles.html" style="text-decoration: none; color: inherit;">
-          <h2>Sófocles</h2><br>
+          <h2>Édipo Rei</h2><br><br>
           <div class="cover-container">
             <img src="img/sofocles.jpg" alt="Sofocles">
             <span class="badge">16+</span>
@@ -761,7 +761,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/cartapero.html" style="text-decoration: none; color: inherit;">
-          <h2>Pero Vaz de Caminha</h2><br>
+          <h2>Carta de Pero Vaz de Caminha</h2><br>
           <div class="cover-container">
             <img src="img/acartapero.png" alt="A Carta">
             <span class="badge">14+</span>
@@ -771,7 +771,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
         <div class="book-card">
         <a href="livros/otristefim.html" style="text-decoration: none; color: inherit;">
-          <h2>Graphic Novel</h2><br>
+          <h2>O Triste Fim de Policarpo Quaresma</h2><br>
           <div class="cover-container">
             <img src="img/otristefim.png" alt="Triste Fim">
             <span class="badge">16+</span>
@@ -781,7 +781,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
 
     </div>
   </section>
-
+<br>
   <footer class="main-footer">
     <a href="#">Política de Privacidade</a> |
     <a href="#">Termos de Uso</a> |
