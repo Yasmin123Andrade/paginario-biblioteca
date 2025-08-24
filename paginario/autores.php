@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <title>Biblioteca | Autores</title>
-  <link rel=stylesheet href="img">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editora – Filtro de Pesquisa</title>
+  <link rel="stylesheet" href="img">
   <style>
     * {
       margin: 0;
@@ -11,200 +12,337 @@
       box-sizing: border-box;
     }
 
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background-color: #ecb87f;
-  color: #7f4d04;
-}
-header {
-    background: #86541c;
-    text-align: center;
-    position: relative;
-    justify-content: center;
-    padding: 5px 0;
-    height: 40px;
+    body {
+      font-family: Georgia, serif;
+      background-color: #ecb87f;
+    }
+
+    header {
+  background: #86541c;
+  position: relative;
+  padding: 5px 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* título centralizado */
 }
 
-h1 {
+header h1 {
+  margin: 0;
   font-size: 30px;
-  margin: 0;
   color: #fff;
-}
-
-h2 {
-  margin: 5px 0 20px;
-  font-size: 22px;
-  text-transform: uppercase;
-  color: #E9A863;
-}
-
-.menu-icon img {
-  width: 40px;
-  height: 40px;
-}
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #86541c;
-  padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu ul li {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.side-menu ul li a {
-  color: #eab97f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-.side-menu.open {
-  left: 0; 
-}
-
-.menu-icon {
-  cursor: pointer;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* mantém centralizado */
 }
 
-.close-icon {
+/* Barra de pesquisa no canto direito */
+
+.search-container {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 6px 12px 6px 12px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #562f05;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: 8px;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.close-icon img {
-  width: 100%;
-  height: 100%;
+.search-btn img {
+  width: 18px;
+  height: 18px;
 }
 
-    .logo {
-      font-size: 14px;
-      font-weight: bold;
+
+.search-container input:focus {
+  border-color: #86541c;
+}
+
+    .menu-icon img {
+      width: 40px;
+      height: 40px;
     }
 
-    .bookshelf {
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #86541c;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu ul li {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .side-menu ul li a {
+      color: #eab97f;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .side-menu.open {
+      left: 0; 
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-icon img {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      font-size:30px;
+      margin: 0;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+    }
+
+    h2 {
+      margin: 5px 0 20px;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #562f05;
+    }
+
+    .publisher-banner {
       background: url('img/image.png') no-repeat center top;
       color: #fff;
       background-size: cover;
       height: 80px;
       margin-bottom: 10px;
-      width: 100vw;
-      display: flex;
+      width:100vw;
+      display:flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease; 
     }
 
-    main {
+    .publisher-banner:active {
+      transform: scale(0.98);
+    }
+
+    .icon-wrapper {
+      background-color: #3d2815;
+      border-radius: 50%;
+      padding: 10px;
+      position: absolute;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      padding: 20px;
+      border-radius: 8px;
+      justify-items: center;
+    }
+
+    .book-card {
       text-align: center;
     }
 
-    .livros {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
+    .book-card h3 {
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #5b3d1f;
     }
 
-    .livro {
-      width: 150px;
+    .cover-container {
       position: relative;
-      background-color: #fff3e0;
-      border-radius: 5px;
-      padding: 10px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .livro:hover {
-      transform: scale(1.03);
+    .cover-container:hover {
+      transform: scale(1.1);
+      z-index: 1;
+    }
+.cover-container img {
+  width: 240px;   
+  height: 360px; 
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, box-shadow 0.3s ease;
+  object-fit: cover; 
+}
+
+    .cover-container:hover img {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
 
-    .livro img {
-      width: 100%;
-      border-radius: 4px;
+    .cover-container:active {
+      transform: scale(0.95) rotate(-2deg);
     }
 
-    .livro p {
-      margin: 10px 0 0;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .selo {
+    .badge {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      background: red;
-      color: white;
-      font-size: 12px;
-      padding: 2px 6px;
+      top: 6px;
+      right: 6px;
+      background-color: #e63946;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 4px 6px;
       border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
-footer {
-    background: #86541c;
-    color: #fff;
-    text-align: center;
-    padding: 12px 0 14px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    font-size: 1.08em;
-    letter-spacing: .02em;
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #a56e1a;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+header {
+  background: #86541c;
+  text-align: center;
+  position: relative;
+  padding: 5px 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-footer a {
-    color: #E9A863;
-    margin: 0 20px;
-    text-decoration: none;
-    border-bottom: 1px solid #E9A863;
+header input[type="text"] {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
+#myInput {
+  width: 250px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px; /* espaço à esquerda para a lupa */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background-image: url('img/magnifying-glass-1976105_1280.png'); /* sua lupa */
+  background-position: 10px center; /* posição da lupa */
+  background-repeat: no-repeat;
+  background-size: 18px 18px; /* deixa pequena */
 }
 
-footer span {
-    color: #E9A863;
-    margin-left: 18px;
+#myInput:focus {
+  outline: none;
+  border-color: #86541c;
 }
   </style>
 </head>
+
 <body>
-  <header>
-        <h2>FILTRO DE PESQUISA</h2>
-    <div class="menu-icon">   
-      <img src="img/component 1.svg" alt="Abrir Menu" />
-    </div>
-  </header>
+<header>
+  <div class="menu-icon">   
+    <img src="img/component 1.svg" alt="Abrir Menu" />
+  </div>
+
+  <h1>FILTRO DE PESQUISA</h1>
+
+ <div class="search-container">
+  <input type="text" id="myInput" placeholder="Pesquisar Autor(a)..." title="Digite o nome do Autor(a)">
+  </button>
+</div>
+</header>
+<script>
+function myFunction() {
+    var input, filter, cards, h2, img, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    cards = document.getElementsByClassName("book-card");
+
+    for (i = 0; i < cards.length; i++) {
+        h2 = cards[i].getElementsByTagName("h2")[0];
+        img = cards[i].getElementsByTagName("img")[0];
+        
+        txtValue = "";
+        if (h2) txtValue += h2.textContent || h2.innerText;
+        if (img) txtValue += " " + (img.alt || "");
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+document.getElementById("myInput").addEventListener("keyup", myFunction);
+</script>
+  
   <nav id="side-menu" class="side-menu">
     <div class="close-icon">
-      <img src="img/component 1.svg" alt="Fechar Menu"/>
+      <img src="img/lupa.png" alt="Fechar Menu"/>
     </div>
     <ul>
       <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
@@ -221,38 +359,433 @@ footer span {
     </ul>
   </nav>
 
-  <main>
-    <div class="bookshelf">
-      <h1>MACHADO DE ASSIS</h1>
+ 
+  <section class="publisher-section">
+    <div class="publisher-banner">
+      <div class="icon-wrapper">
+        <img src="./img/paginario.png" alt="Logo Paginário" class="book-icon" style="width: 50px; height: 50px;">
+      </div>
+      <h1>AUTORES</h1>
     </div>
 
-    <section class="livros">
-      <?php
-        $livros = [
-          ["titulo" => "Memórias Póstumas de Brás Cuba", "img" => "img/memoriaspostumas.png"],
-          ["titulo" => "Seus Trinta Melhores Contos", "img" => "img/image 15.png"],
-          ["titulo" => "Dom Casmurro", "img" => "img/image 11.png"],
-          ["titulo" => "A Mão e a Luva", "img" => "img/image 23.png"],
-          ["titulo" => "Quincas Borba", "img" => "img/image 21.png"],
-          ["titulo" => "O Alienista", "img" => "img/oalienista.png"],
-          ["titulo" => "Helena", "img" => "img/helena.png"]
-        ];
+    <div class="book-grid">
+    
+      <div class="book-card">
+        <a href="livros/memoriaspostumas.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="./img/memoriasPostumas.png" alt="Memórias Póstumas de Brás Cuba">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+     
+      <div class="book-card">
+        <a href="livros/melhorescontos.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br><br>
+          <div class="cover-container">
+            <img src="./img/trintaMelhores.png" alt="Seus Trinta Melhores Contos">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+    
+      <div class="book-card">
+        <a href="livros/domcasmurro.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br><br>
+          <div class="cover-container">
+            <img src="./img/domCasmurro.png" alt="Dom Casmurro">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+    
+      <div class="book-card">
+        <a href="livros/ocortico.html" style="text-decoration: none; color: inherit;">
+          <h2> Aluísio de Azevedo </h2><br><br>
+          <div class="cover-container">
+            <img src="./img/cortico.png" alt="O Cortiço">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <a href="livros/maoeluva.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="./img/maoLuva.png" alt="A Mão e a Luva">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <a href="livros/quincasborba.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="./img/quincasBorba.png" alt="Quincas Borba">
+            <span class="badge">12+</span>
+          </div>
+        </a>
+      </div>
+    
+      <div class="book-card">
+        <a href="livros/oalienista.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="./img/alienista.png" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+    
+      <div class="book-card">
+        <a href="livros/helena.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="./img/helena.png" alt="Helena">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
 
-        foreach ($livros as $livro) {
-          echo '<div class="livro">';
-          echo '<img src="'.$livro["img"].'" alt="'.$livro["titulo"].'">';
-          echo '<span class="selo">16+</span>';
-          echo '<p>'.$livro["titulo"].'</p>';
-          echo '</div>';
-        }
-      ?>
-    </section>
-  </main>
+<div class="book-card">
+        <a href="livros/1984.html" style="text-decoration: none; color: inherit;">
+          <h2>George Orwell</h2><br>
+          <div class="cover-container">
+            <img src="./img/1984.jpg" alt="1984">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
 
-  <footer>
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
-    <span>| Todos os direitos reservados (BR)</span>
+<div class="book-card">
+        <a href="livros/RomeueJulieta.html" style="text-decoration: none; color: inherit;">
+          <h2> William Shakespeare</h2><br>
+          <div class="cover-container">
+            <img src="./img/RomeueJulieta.jpg" alt="Romeu e Julieta">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+<div class="book-card">
+        <a href="livros/Oslusiadas.html" style="text-decoration: none; color: inherit;">
+          <h2>Luís de Camões</h2><br>
+          <div class="cover-container">
+            <img src="./img/Oslusiadas.jpg" alt="Os Lusíadas">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="livros/sargento.html" style="text-decoration: none; color: inherit;">
+          <h2>Memórias de um Sargento de Milícias</h2><br>
+          <div class="cover-container">
+            <img src="img/sargento.jpg" alt="O Sargento">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="livros/arazao.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br>
+          <div class="cover-container">
+            <img src="img/razao.jpg" alt="Razão e Sensibilidade">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="livros/DomQuixote.html" style="text-decoration: none; color: inherit;">
+          <h2>Miguel de Cervantes</h2><br>
+          <div class="cover-container">
+            <img src="img/DomQuixote.png" alt="Dom Quixote">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="livros/orgulhoepreconceito.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br>
+          <div class="cover-container">
+            <img src="img/OrgulhoePreconceito.png  "   alt="Orgulho e Preconceito">
+      
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="livros/oguarani.html" style="text-decoration: none; color: inherit;">
+          <h2>José de Alencar</h2><br>
+          <div class="cover-container">
+            <img src="img/OGuarani.png" alt="O Guarani">
+            <span class="badge">12+</span>
+          </div>
+        </a>
+      </div>
+
+<div class="book-card">
+        <a href="livros/asviagens.html" style="text-decoration: none; color: inherit;">
+          <h2>Jonathan Swift</h2><br>
+          <div class="cover-container">
+            <img src="img/asviagens.png" alt="As Viagens">
+            <span class="badge">10+</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="book-card">
+        <a href="livros/amoreamizade.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br>
+          <div class="cover-container">
+            <img src="img/amoreamizade.jpg" alt="Amor e Amizade">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+         <div class="book-card">
+        <a href="livros/iliada.html" style="text-decoration: none; color: inherit;">
+          <h2>Homero</h2><br>
+          <div class="cover-container">
+            <img src="img/iliada.jpg" alt="Ilíada">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+         <div class="book-card">
+        <a href="livros/Iracema.html" style="text-decoration: none; color: inherit;">
+          <h2>José de Alencar</h2><br>
+          <div class="cover-container">
+            <img src="img/Iracema.png" alt="Iracema">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+         <div class="book-card">
+        <a href="livros/osmiseraveis.html" style="text-decoration: none; color: inherit;">
+          <h2>Victor Hugo</h2><br>
+          <div class="cover-container">
+            <img src="img/71L28YvPobL._SY425_.jpg" alt="O Alienista">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="livros/adaoeeva.html" style="text-decoration: none; color: inherit;">
+          <h2>Machado de Assis</h2><br>
+          <div class="cover-container">
+            <img src="img/adaoeeva.png" alt="Adão e Eva">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/odisseia.html" style="text-decoration: none; color: inherit;">
+          <h2>Homero</h2><br>
+          <div class="cover-container">
+            <img src="img/odisseia.png" alt="Odisseia">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/senhora.html" style="text-decoration: none; color: inherit;">
+          <h2>José de Alencar</h2><br>
+          <div class="cover-container">
+            <img src="img/senhora.jpg" alt="Senhora">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+         <div class="book-card">
+        <a href="livros/sertoes.html" style="text-decoration: none; color: inherit;">
+          <h2>Euclides da Cunha</h2><br>
+          <div class="cover-container">
+            <img src="img/sertoes_.jpg" alt="Os Sertões">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="livros/amoreperdicao.html" style="text-decoration: none; color: inherit;">
+          <h2>Camilo Castelo Branco</h2><br>
+          <div class="cover-container">
+            <img src="img/amoreperdicao.png" alt="Amor e Perdição">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/metamorfose.html" style="text-decoration: none; color: inherit;">
+          <h2>Frank Kafka</h2><br>
+          <div class="cover-container">
+            <img src="img/ametamorfose.png" alt="A Metamorfose">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/osmaias.html" style="text-decoration: none; color: inherit;">
+          <h2>Eca de Queirós</h2><br>
+          <div class="cover-container">
+            <img src="img/osmaias.png" alt="Os Maias">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+
+
+         <div class="book-card">
+        <a href="livros/per.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br><br>
+          <div class="cover-container">
+            <img src="img/per.png" alt="Persuasão">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="livros/amoreninha.html" style="text-decoration: none; color: inherit;">
+          <h2>Joaquim Manuel de Macedo</h2><br>
+          <div class="cover-container">
+            <img src="img/amoreninha.png" alt="A Moreninha">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/aescrava.html" style="text-decoration: none; color: inherit;">
+          <h2>Bernardo Guimarães</h2><br><br>
+          <div class="cover-container">
+            <img src="img/aescrava.png" alt="A Escrava">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/osventosruivantes.html" style="text-decoration: none; color: inherit;">
+          <h2>Emile Bronte</h2><br><br>
+          <div class="cover-container">
+            <img src="img/osventosruivantes.jpg" alt="Os Ventos Ruivantes">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+
+      
+         <div class="book-card">
+        <a href="livros/lady.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br>
+          <div class="cover-container">
+            <img src="img/lady.jpg" alt="Lady">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="livros/Abby.html" style="text-decoration: none; color: inherit;">
+          <h2>Jane Austen</h2><br>
+          <div class="cover-container">
+            <img src="img/Northanger Abbey _.jpg" alt="Abby">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/artepoetica.html" style="text-decoration: none; color: inherit;">
+          <h2>Aristóteles</h2><br>
+          <div class="cover-container">
+            <img src="img/artepoetica.jpg" alt="Arte Poetica">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/omercadodeveneza.html" style="text-decoration: none; color: inherit;">
+          <h2>William Shakespeare</h2><br>
+          <div class="cover-container">
+            <img src="img/mercador_de_veneza_.jpg" alt="Mercado de Veneza">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+
+      
+         <div class="book-card">
+        <a href="livros/macbethr.html" style="text-decoration: none; color: inherit;">
+          <h2>William Shakespeare</h2><br>
+          <div class="cover-container">
+            <img src="img/mac.png" alt="Macbethr">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+  <div class="book-card">
+        <a href="livros/sofocles.html" style="text-decoration: none; color: inherit;">
+          <h2>Sófocles</h2><br>
+          <div class="cover-container">
+            <img src="img/sofocles.jpg" alt="Sofocles">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/cartapero.html" style="text-decoration: none; color: inherit;">
+          <h2>Pero Vaz de Caminha</h2><br>
+          <div class="cover-container">
+            <img src="img/acartapero.png" alt="A Carta">
+            <span class="badge">14+</span>
+          </div>
+        </a>
+      </div>
+
+        <div class="book-card">
+        <a href="livros/otristefim.html" style="text-decoration: none; color: inherit;">
+          <h2>Graphic Novel</h2><br>
+          <div class="cover-container">
+            <img src="img/otristefim.png" alt="Triste Fim">
+            <span class="badge">16+</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
   </footer>
 
   <script>
@@ -268,5 +801,6 @@ footer span {
       sideMenu.classList.remove('open');
     });
   </script>
+
 </body>
 </html>
