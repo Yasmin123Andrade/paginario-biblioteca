@@ -98,6 +98,31 @@
       background-color: #7a3e1cff;
     }
 
+    /* Avaliação por estrelas */
+    .avaliacao {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: 15px;
+      gap: 5px;
+    }
+
+    .estrela {
+      font-size: 40px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .estrela.selecionada {
+      color: gold;
+    }
+
+    #nota {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
     /* Rodapé */
     .main-footer {
       text-align: center;
@@ -132,6 +157,9 @@
         max-width: 100%;
         text-align: center;
       }
+         .avaliacao {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -164,6 +192,16 @@
           <a href="Triste Fim de Policarpo Quaresma.epub">Baixar EPUB</a>
           <a href="Triste Fim de Policarpo Quaresma.pdf">Baixar PDF</a>
         </div>
+                <!-- Avaliação por estrelas -->
+        <div class="avaliacao">
+          <p>Avaliação:</p>
+          <span class="estrela" data-value="1">&#9733;</span>
+          <span class="estrela" data-value="2">&#9733;</span>
+          <span class="estrela" data-value="3">&#9733;</span>
+          <span class="estrela" data-value="4">&#9733;</span>
+          <span class="estrela" data-value="5">&#9733;</span>
+        </div>
+        <p id="nota"></p>
       </div>
     </section>
   </main>
@@ -173,5 +211,25 @@
     <a href="#">Termos de Uso</a> |
     <span>Todos os direitos reservados (BR)</span>
   </footer>
+   <script>
+    const estrelas = document.querySelectorAll('.estrela');
+    const notaTexto = document.getElementById('nota');
+    let nota = 0;
+
+    estrelas.forEach((estrela, index) => {
+      estrela.addEventListener('click', () => {
+        nota = index + 1;
+        notaTexto.textContent = "Você avaliou com " + nota + " estrela(s)";
+        
+        estrelas.forEach((e, i) => {
+          if (i < nota) {
+            e.classList.add('selecionada');
+          } else {
+            e.classList.remove('selecionada');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
