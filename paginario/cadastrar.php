@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Biblioteca Virtual</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Georgia, serif;
+    }
 
         body {
             background-image: url('img/fundoimagem.png');
@@ -24,7 +24,7 @@
 
         .caixa {
             background-color: #9C6224;
-            color: #E9A863;
+            color: #d6a65a;
             padding: 40px;
             border-radius: 20px;
             text-align: center;
@@ -33,9 +33,10 @@
         }
 
         .caixa h1 {
-            font-size: 28px;
             margin-bottom: 30px;
             font-weight: bold;
+            font-size: 40px;
+            color: #d6a65a;
         }
 
         .botao {
@@ -45,38 +46,35 @@
             padding: 15px;
             font-size: 20px;
             font-weight: bold;
-            color: #9C6224;
             background-color: #E9A863;
-            border: 3px solid #ffffff;
+            color: #804D07;
+            border: 2px solid #fff;
             border-radius: 40px;
             text-decoration: none;
             transition: background 0.3s;
         }
 
         .botao:hover {
-            background-color: #d49a47;
+            background-color: #d1a25a;
         }
 
         .rodape {
-            position: absolute;
+        position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #A05A15;
+            padding: 14px 0;
+            background: #86541c;
             color: #fff;
             text-align: center;
-            padding: 15px 10px;
-            font-size: 14px;
+      font-size: 0.9rem;
         }
 
         .rodape a {
-            color: #f5c184;
-            text-decoration: none;
-            margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
         }
 
-        .rodape a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -88,9 +86,9 @@
     </div>
 
      <div class="rodape">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        | Todos os direitos reservados (BR)
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
     </div>
 
 </body>

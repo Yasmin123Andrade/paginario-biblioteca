@@ -188,29 +188,18 @@
 }
 
 
-    footer {
-      background: #86541c;
-      color: #fff;
+    .main-footer {
       text-align: center;
-      padding: 12px 0 14px 0;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      font-size: 1.08em;
-      letter-spacing: .02em;
+      padding: 14px 0;
+  background: #86541c;
+      color: #fff;
+      font-size: 0.9rem;
     }
 
-    footer a {
-      color: #E9A863;
-      margin: 0 20px;
+    .main-footer a {
+      color: #fff;
       text-decoration: none;
-      border-bottom: 1px solid #E9A863;
-    }
-
-    footer span {
-      color: #E9A863;
-      margin-left: 18px;
+      margin: 0 6px;
     }
   </style>
 </head>
@@ -275,10 +264,10 @@
     </div>
   </main>
 
-  <footer>
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
-    <span>| Todos os direitos reservados (BR)</span>
+  <footer class="main-footer">
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
   </footer>
 
   <script>

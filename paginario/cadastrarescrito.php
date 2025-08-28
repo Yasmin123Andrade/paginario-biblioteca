@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .registration-form {
             width: 420px;
             max-width: 95vw;
-            background-color: #804D07;
+            background: #86541c;
             padding: 30px 30px 40px;
             border-radius: 8px;
             display: flex;
@@ -83,7 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             gap: 20px;
         }
         .registration-form h1 {
-            font-family: "Staatliches", Helvetica, Arial, sans-serif;
             font-size: 40px;
             color: #d6a65a;
             font-weight: bold;
@@ -125,7 +124,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
             padding: 0;
             min-width: 0;
-             font-family: "Sahitya", Helvetica, Arial, sans-serif; 
         }
         .custom-input input:focus {
             color: #131212ff;
@@ -133,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .registration-form button {
             background-color: #E9A863;
-            font-family: "Sahitya", Helvetica, Arial, sans-serif;
             color: #804D07;
             border: 2px solid #fff;
             border-radius: 50px;
@@ -148,35 +145,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .registration-form button:hover {
             background-color: #d1a25a;
         }
-        footer {
-            background-color: #804D07;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #E9A863;
-            font-size: 0.9rem;
-            padding: 12px 0;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            user-select: none;
-        }
-        footer a {
-            color: #E9A863;
-            margin: 0 16px;
-            text-decoration: none;
-            border-bottom: 1px solid #f0dfb3;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-        footer a:hover {
-            opacity: 0.7;
-        }
-        footer span {
-            margin-left: 16px;
-        }
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+  background: #86541c;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
         .error-message {
             color: red;
             background-color: white;
-            font-family: "Sahitya", Helvetica, Arial, sans-serif;
             padding: 8px;
             border-radius: 50px;
             margin: 5px 0;
@@ -239,11 +223,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </main>
 
-    <footer>
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        <span>| Todos os direitos reservados (BR)</span>
-    </footer>
+  <footer class="main-footer">
+    <a href="#">Política de Privacidade</a> |
+    <a href="#">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
 
 </body>
 </html>

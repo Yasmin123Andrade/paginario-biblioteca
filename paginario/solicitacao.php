@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: 20px;
             max-width: 700px;
             margin: 20px auto;
-            background: #e5b481;
+            background: #e8c8a1;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
@@ -155,14 +155,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #6e4c20;
         }
 
-        .rodape {
-            background: #845c26;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 14px;
-        }
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+  background: #86541c;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
 
         .mensagem {
             background: #4CAF50;
@@ -177,6 +182,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   font-size: 30px;
   margin: 0;
   color: #fff;
+}
+
+     p {
+  font-size: 30px;
+  margin: 0;
+  color: #352714ff;
 }
 
 h2 {
@@ -239,11 +250,11 @@ SOLICITAÇÃO DE LIVROS</div>
     </form>
 </div>
 
-<div class="rodape">
-    <a href="#" style="color:white; text-decoration: underline;">Política de Privacidade</a> | 
-    <a href="#" style="color:white; text-decoration: underline;">Termos de Uso</a> |
-    Todos os direitos reservados (BR)
-</div>
+  <footer class="main-footer">
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
 
 <script>
 const menuIcon = document.querySelector('.menu-icon');

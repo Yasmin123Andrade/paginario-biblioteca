@@ -251,7 +251,7 @@ header h1 {
     .main-footer {
       text-align: center;
       padding: 14px 0;
-      background-color: #a56e1a;
+  background: #86541c;
       color: #fff;
       font-size: 0.9rem;
     }
