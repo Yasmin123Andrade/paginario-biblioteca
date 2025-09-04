@@ -18,70 +18,76 @@
         line-height: 1.6;
     }
 
+        .menu-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
     .menu-icon img {
-  width: 40px;
-  height: 40px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #86541c;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .side-menu ul li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .side-menu ul li a {
+        color: #eab97f;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+.side-menu ul li a:hover {
+  color: #ffffff;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #86541c;
-  padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
+    .side-menu.open {
+        left: 0;
+    }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .close-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.side-menu ul li {
-  margin: 20px 0;
-  text-align: center;
-}
+    .close-icon img {
+        width: 100%;
+        height: 100%;
+    }
 
-.side-menu ul li a {
-  color: #eab97f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-.side-menu.open {
-  left: 0; 
-}
-
-.menu-icon {
-  cursor: pointer;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
-
-.close-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.close-icon img {
-  width: 100%;
-  height: 100%;
-}
 
     .main-header {
         display: flex;

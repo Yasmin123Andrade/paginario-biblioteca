@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Solicitação de Livros</title>
     <link hrf="img">
+    <link rel="stylesheet" href="imgs" />
     <style>
  * {
         margin: 0;
@@ -29,6 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         font-family: Georgia, serif;
         background-color: #ecb87f;
         color: #FFF;
+    }
+
+        .menu-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .menu-icon img {
@@ -68,6 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         font-size: 1.1em;
     }
 
+.side-menu ul li a:hover {
+  color: #ffffff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
     .side-menu.open {
         left: 0;
     }
@@ -98,12 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         position: relative;
     }
 
-    .menu-icon {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
 
         .livros {
             background: url('img/fundoimagem.png') no-repeat center;
@@ -123,36 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .conteudo p {
             margin-bottom: 20px;
             font-size: 18px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 25px;
-            border: none;
-            font-size: 16px;
-        }
-
-        form textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        form button {
-            width: 100%;
-            padding: 15px;
-            background: #845c26;
-            color: white;
-            font-size: 18px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        form button:hover {
-            background: #6e4c20;
+            align-items:center;
         }
 
     .main-footer {
@@ -176,6 +154,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin-bottom: 15px;
             border-radius: 5px;
+        }
+
+        .registration-form {
+            width: 100%;
+            max-width: 95vw;
+            background: #e8c8a1;
+            padding: 30px 30px 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .registration-form h1 {
+            font-size: 40px;
+            color: #d6a65a;
+            font-weight: bold;
+            text-align: center;
+        }
+        .custom-input {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid #e9a863cc;
+            padding: 10px 15px;
+            color: #9D9375;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+        .custom-input .icon {
+            width: 26px;
+            height: 26px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            margin-right: 10px;
+        }
+        .usuario { background-image: url('imgs/vector (1).svg'); }
+        .senha { background-image: url('imgs/vector.svg'); }
+        .email { background-image: url('imgs/image 2.png'); }
+        .nome-livro { background-image: url('imgs/image 14.png'); }
+        .sinopse { background-image: url('imgs/image 12.png'); }
+        .nome-autor { background-image: url('imgs/image 13.png'); }
+
+        .custom-input input {
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #804D07;
+            flex-grow: 1;
+            background: transparent;
+            font-weight: bold;
+            padding: 0;
+            min-width: 0;
+        }
+        .custom-input input:focus {
+            color: #131212ff;
+            
+        }
+        .registration-form button {
+            background-color: #E9A863;
+            color: #845c26;
+            border: 2px solid #f7cb97ff;
+            border-radius: 50px;
+            padding: 10px 0;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .registration-form button:hover {
+            background-color: #d1a25a;
         }
 
         h1 {
@@ -235,19 +287,36 @@ SOLICITAÇÃO DE LIVROS</div>
     <p>Parece que o livro que você procura ainda não está disponível no sistema.
         Você pode solicitar sua inclusão preenchendo os campos abaixo:</p>
 
-    <form method="post">
-        <input type="text" name="nome" placeholder="📚 Nome do livro:" required>
+            <form class="registration-form" method="post">
 
-        <input type="text" name="autor" placeholder="👤 Autor(a):" required>
+            <div class="custom-input">
+                <div class="icon nome-livro" aria-hidden="true"></div>
+                <input type="text" name="nome-livro" placeholder="Nome do livro" required />
+            </div>
 
-        <input type="email" name="email" placeholder="✉️ e-mail:" required>
+                        <div class="custom-input">
+                <div class="icon nome-autor" aria-hidden="true"></div>
+                <input type="text" name="autor" placeholder="Autor(a)" required />
+            </div>
 
-        <textarea name="sinopse" placeholder="📖 Sinopse:"></textarea>
+                        <div class="custom-input">
+                <div class="icon email" aria-hidden="true"></div>
+                <input type="email" name="email" placeholder="E-mail" required />
+            </div>
 
-        <input type="text" name="idade" placeholder="👥 Indicativo etário:">
+            <div class="custom-input">
+                <div class="icon sinopse" aria-hidden="true"></div>
+                <input type="text" name="sinopse" placeholder="Sinopse" required />
+            </div>
 
-        <button type="submit">Enviar Solicitação</button>
-    </form>
+                        <div class="custom-input">
+                <div class="icon usuario" aria-hidden="true"></div>
+                <input type="text" name="indicativo etário" placeholder="Indicativo Etário" required />
+            </div>
+
+                <button type="submit">CADASTRAR</button>
+
+        </form>
 </div>
 
   <footer class="main-footer">

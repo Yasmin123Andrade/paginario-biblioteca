@@ -55,91 +55,74 @@ header h1 {
   width: 200px;
 }
 
-.search-btn {
-  background-color: #562f05;
-  border: none;
-  border-radius: 50%;
-  padding: 8px;
-  margin-left: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-btn img {
-  width: 18px;
-  height: 18px;
-}
-
-
-.search-container input:focus {
-  border-color: #86541c;
-}
-
+        .menu-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
     .menu-icon img {
-      width: 40px;
-      height: 40px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
     }
 
     .side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #86541c;
-      padding-top: 60px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-      transition: left 0.3s ease;
-      z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #86541c;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        transition: left 0.3s ease;
+        z-index: 1000;
     }
 
     .side-menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     .side-menu ul li {
-      margin: 20px 0;
-      text-align: center;
+        margin: 20px 0;
+        text-align: center;
     }
 
     .side-menu ul li a {
-      color: #eab97f;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
+        color: #eab97f;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
     }
+
+.side-menu ul li a:hover {
+  color: #ffffff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
 
     .side-menu.open {
-      left: 0; 
-    }
-
-    .menu-icon {
-      cursor: pointer;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      position: absolute;
+        left: 0;
     }
 
     .close-icon {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .close-icon img {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     h1 {
@@ -342,7 +325,7 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
   
   <nav id="side-menu" class="side-menu">
     <div class="close-icon">
-      <img src="img/lupa.png" alt="Fechar Menu"/>
+    <img src="img/component 1.svg" alt="Fechar Menu"/>
     </div>
     <ul>
       <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
