@@ -1,14 +1,23 @@
 <?php
-$mensagem = "";
+$errors = [];
+$success = false;
+$usuario = $senha = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
-    if ($usuario == "admin" && $senha == "1234") {
-        $mensagem = "<p style='color:green;text-align:center;'>Bem-vindo à Biblioteca Virtual, $usuario!</p>";
-    } else {
-        $mensagem = "<p style='color:red;text-align:center;'>Usuário ou senha inválidos!</p>";
+    if (!$usuario) {
+        $errors[] = "O campo Usuário é obrigatório.";
+    }
+    if (!$senha) {
+        $errors[] = "O campo Senha é obrigatório.";
+    }
+
+    if (count($errors) === 0) {
+        $success = true;
+        header('Location: inicio.html');
+        exit();
     }
 }
 ?>
@@ -21,111 +30,154 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+                min-height: 100vh;
+                height: 100%;
             background: url('img/fundoimagem.png') no-repeat center center;
             background-size: cover;
+                display: flex;
+    flex-direction: column;
         }
-        .login-box {
-            background-color: #995c12;
-            width: 400px;
-            margin: 10% auto;
-            padding: 40px;
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px 80px;
+        }
+
+        .registration-form {
+            width: 420px;
+            max-width: 95vw;
+            background: #86541c;
+            padding: 30px 30px 40px;
             border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .registration-form h1 {
+            font-size: 40px;
+            color: #d6a65a;
+            font-weight: bold;
             text-align: center;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        .login-box h1 {
-            margin-bottom: 30px;
-            font-size: 28px;
-            color: #ffc673;
+        .custom-input {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid #e9a863cc;
+            padding: 10px 15px;
+            color: #9D9375;
+            font-weight: bold;
+            box-sizing: border-box;
         }
-        .input-box {
-    position: relative;
-    margin-bottom: 20px;
-}
-.input-box input {
-    width: 100%;
-    padding: 12px 12px 12px 45px; 
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    outline: none;
-    color: #000;
-    box-sizing: border-box;
-}
-.input-box span {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #6b4f1d; 
-    pointer-events: none;
-}
-        .btn {
-            background-color: #f5b971;
-            color: #000;
-            font-size: 18px;
-            padding: 12px;
-            width: 100%;
+        .custom-input .icon {
+            width: 26px;
+            height: 26px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            margin-right: 10px;
+        }
+        .usuario { background-image: url('imgs/vector (1).svg'); }
+        .senha { background-image: url('imgs/vector.svg'); }
+        .email { background-image: url('imgs/image 2.png'); }
+        .nome-livro { background-image: url('imgs/image 14.png'); }
+        .sinopse { background-image: url('imgs/image 12.png'); }
+        .nome-autor { background-image: url('imgs/image 13.png'); }
+
+        .custom-input input {
             border: none;
-            border-radius: 25px;
+            outline: none;
+            font-size: 1rem;
+            color: #804D07;
+            flex-grow: 1;
+            background: transparent;
+            font-weight: bold;
+            padding: 0;
+            min-width: 0;
+        }
+        .custom-input input:focus {
+            color: #131212ff;
+            
+        }
+        .registration-form button {
+            background-color: #E9A863;
+            color: #804D07;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            padding: 10px 0;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .btn:hover {
-            background-color: #d49543;
+        .registration-form button:hover {
+            background-color: #d1a25a;
         }
-        footer {
+        .error-message {
+            color: red;
+            background-color: white;
+            padding: 8px;
+            border-radius: 50px;
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 0.9rem;
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #995c12;
-            color: #fff;
         }
-      .rodape {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #A05A15;
-            color: #fff;
-            text-align: center;
-            padding: 15px 10px;
-            font-size: 14px;
-        }
+        
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+  background: #86541c;
+      color: #fff;
+      font-size: 0.9rem;
+    }
 
-        .rodape a {
-            color: #f5c184;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .rodape a:hover {
-            text-decoration: underline;
-        }
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
     </style>
 </head>
 <body>
 
-<div class="login-box">
-    <h1>BIBLIOTECA VIRTUAL</h1>
-    <?php echo $mensagem; ?>
-    <form method="POST">
-        <div class="input-box">
-            <span>👤</span>
-            <input type="text" name="usuario" placeholder="Usuário" required>
-        </div>
-        <div class="input-box">
-            <span>🔑</span>
-            <input type="password" name="senha" placeholder="Senha" required>
-        </div>
-        <button type="submit" class="btn" >LOGIN <a href="paginainicial.html"></a></button>
-    </form>
-</div>
-    <div class="rodape">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        | Todos os direitos reservados (BR)
-    </div>
+    <main>
+        <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
+            <h1>BIBLIOTECA VIRTUAL</h1>
+
+            <?php if (count($errors) > 0): ?>
+                <div class="error-message">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?= htmlspecialchars($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="custom-input">
+                <div class="icon usuario" aria-hidden="true"></div>
+                <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon senha" aria-hidden="true"></div>
+                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <?php if (!$success): ?>
+                <button type="submit">CADASTRAR</button>
+            <?php endif; ?>
+
+        </form>
+            </main>
+  <footer class="main-footer">
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
 </body>
 </html>

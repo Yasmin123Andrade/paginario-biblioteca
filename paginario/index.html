@@ -12,35 +12,42 @@
             font-family: Arial, sans-serif;
         }
 
-        body {
-            background-image: url('img/fundoimagem.png');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; 
-        }
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+        
+body {
+    background-image: url('img/fundoimagem.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        .caixa {
-            background-color: #A05A15;
-            color: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            width: 400px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
+.caixa {
+    background-color: #A05A15;
+    color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    margin: auto; /* centraliza horizontalmente */
+}
 
         .caixa h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 40px;
+            color: #d6a65a;
             font-weight: bold;
+            text-align: center;
         }
 
         .caixa p {
             font-size: 20px;
+            margin-top: 30px;
             margin-bottom: 30px;
             text-align: center;
         }
@@ -53,8 +60,8 @@
             font-size: 18px;
             font-weight: bold;
             color: #A05A15;
-            background-color: #f5c184;
-            border: 3px solid white;
+            background-color: #E9A863;
+            border: 2px solid #fff;
             border-radius: 25px;
             cursor: pointer;
             text-decoration: none;
@@ -62,43 +69,37 @@
         }
 
         .botao:hover {
-            background-color: #e5a15e;
+            background-color: #d1a25a;
         }
 
-        .rodape {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #A05A15;
-            color: #fff;
-            text-align: center;
-            padding: 15px 10px;
-            font-size: 14px;
-        }
+.main-footer {
+    text-align: center;
+    padding: 14px 0;
+    background: #86541c;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-top: auto; /* empurra o footer para o fim */
+}
 
-        .rodape a {
-            color: #f5c184;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .rodape a:hover {
-            text-decoration: underline;
-        }
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
     </style>
 </head>
 <body>
     <div class="caixa">
         <h1>BIBLIOTECA VIRTUAL</h1>
-        <p>OLÁ!<br>SEJA BEM-VINDO À<br>BIBLIOTECA VIRTUAL.</p>
+        <p>OLÁ! SEJA BEM-VINDO À BIBLIOTECA VIRTUAL.</p>
         <a href="entrar.php" class="botao">ENTRAR</a>
         <a href="cadastrar.php" class="botao">CADASTRAR</a>
     </div>
 
-    <div class="rodape">
-        <a href="politicaprivacidade.html">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        | Todos os direitos reservados (BR)
-    </div>
+  <footer class="main-footer">
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
+    <span>Todos os direitos reservados (BR)</span>
+  </footer>
 </body>
 </html>

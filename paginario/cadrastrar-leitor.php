@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-width: 95vw;
             background: #86541c;
             padding: 30px 30px 40px;
-            border-radius: 8px;
+            border-radius: 15px;
             display: flex;
             flex-direction: column;
             gap: 20px;
