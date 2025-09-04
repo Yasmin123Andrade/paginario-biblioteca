@@ -159,10 +159,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-decoration: none;
       margin: 0 6px;
     }
+    /* ---- Seta no topo ---- */
+    .seta-topo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #E9A863;
+        color: #804D07;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 16px;
+        border-radius: 50%;
+        text-decoration: none;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: background 0.3s;
+    }
+
+    .seta-topo:hover {
+        background-color: #d1a25a;
+    }
+    
     </style>
 </head>
 <body>
-
+ <a href="cadastrar.php" class="seta-topo seta-direita">⬅</a>
     <div class="background"></div>
     <main>
         <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
