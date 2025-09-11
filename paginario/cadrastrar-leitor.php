@@ -1,23 +1,35 @@
 <?php
+
 $errors = [];
 $success = false;
-$usuario = $senha = $email = "";
+ $cpf = $nome_completo = $email = $telefone = $login = $senha = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+    $cpf = filter_input(INPUT_POST, 'CPF', FILTER_SANITIZE_STRING);
+    $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
+    $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
-    if (!$usuario) {
-        $errors[] = "O campo Usuário é obrigatório.";
+    if (!$cpf) {
+        $errors[] = "O campo CPF é obrigatório.";
     }
-    if (!$senha) {
-        $errors[] = "O campo Senha é obrigatório.";
+    if (!$nome_completo) {
+        $errors[] = "O campo Nome Completo é obrigatório.";
     }
     if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "E-mail inválido.";
     }
-
+    if (!$telefone) {
+        $errors[] = "O campo Telefone é obrigatório.";
+    }
+    if (!$login) {
+        $errors[] = "O campo Usuário é obrigatório.";
+    }
+        if (!$senha) {
+        $errors[] = "O campo Senha é obrigatório.";
+    }
     if (count($errors) === 0) {
         $success = true;
         header('Location: inicio.html');
@@ -29,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro - Biblioteca Virtual</title>
+    <title>Cadastro Leitor - Biblioteca Virtual</title>
     <style>
         * {
             margin: 0;
@@ -100,9 +112,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .usuario { background-image: url('imgs/vector (1).svg'); }
         .senha { background-image: url('imgs/vector.svg'); }
         .email { background-image: url('imgs/image 2.png'); }
-        .nome-livro { background-image: url('imgs/image 14.png'); }
-        .sinopse { background-image: url('imgs/image 12.png'); }
-        .nome-autor { background-image: url('imgs/image 13.png'); }
+        .telefone { background-image: url('imgs/chamada-telefonica.png'); }
+        .nome { background-image: url('imgs/nome.png'); }
+        .cpf { background-image: url('imgs/cpf.png'); }
 
         .custom-input input {
             border: none;
@@ -198,18 +210,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
 
             <div class="custom-input">
-                <div class="icon usuario" aria-hidden="true"></div>
-                <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon cpf" aria-hidden="true"></div>
+                <input type="text" name="cpf" placeholder="CPF" value="<?= htmlspecialchars($cpf) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
-                <div class="icon senha" aria-hidden="true"></div>
-                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon nome" aria-hidden="true"></div>
+                <input type="text" name="nome" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
                 <div class="icon email" aria-hidden="true"></div>
                 <input type="email" name="email" placeholder="E-mail" value="<?= htmlspecialchars($email) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+             <div class="custom-input">
+                <div class="icon telefone" aria-hidden="true"></div>
+                <input type="text" name="telefone" placeholder="Telefone" value="<?= htmlspecialchars($telefone) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            
+            <div class="custom-input">
+                <div class="icon usuario" aria-hidden="true"></div>
+                <input type="text" name="login" placeholder="Usuário" value="<?= htmlspecialchars($login) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
+
+            <div class="custom-input">
+                <div class="icon senha" aria-hidden="true"></div>
+                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <?php if (!$success): ?>

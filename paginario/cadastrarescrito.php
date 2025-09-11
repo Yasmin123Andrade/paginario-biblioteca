@@ -1,33 +1,25 @@
 <?php
 $errors = [];
 $success = false;
-$usuario = $senha = $email = $nomeLivro = $sinopse = $autor = "";
+$nome_completo = $nacionalidade = $data_nascimento = $biografia = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $nomeLivro = filter_input(INPUT_POST, 'nome-livro', FILTER_SANITIZE_STRING);
-    $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRING);
-    $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
+    $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+    $nacionalidade = filter_input(INPUT_POST, 'nacionalidade', FILTER_SANITIZE_STRING);
+    $data_nascimento = filter_input(INPUT_POST, 'datanascimento', FILTER_SANITIZE_EMAIL);
+    $biografia = filter_input(INPUT_POST, 'biografia', FILTER_SANITIZE_STRING);
 
-    if (!$usuario) {
-        $errors[] = "O campo Usuário é obrigatório.";
+    if (!$nome_completo) {
+        $errors[] = "O campo Nome Completo é obrigatório.";
     }
-    if (!$senha) {
-        $errors[] = "O campo Senha é obrigatório.";
+    if (!$nacionalidade) {
+        $errors[] = "O campo Nacionalidade é obrigatório.";
     }
-    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "E-mail inválido.";
+    if (!$data_nascimento) {
+        $errors[] = "O campo Data de Nascimento é obrigatório.";
     }
-    if (!$nomeLivro) {
-        $errors[] = "O campo Nome do livro é obrigatório.";
-    }
-    if (!$sinopse) {
-        $errors[] = "O campo Sinopse é obrigatório.";
-    }
-    if (!$autor) {
-        $errors[] = "O campo Autor(a) é obrigatório.";
+    if (!$biografia) {
+        $errors[] = "O campo Biografia é obrigatório.";
     }
 
     if (count($errors) === 0) {
@@ -107,12 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-size: contain;
             margin-right: 10px;
         }
-        .usuario { background-image: url('imgs/vector (1).svg'); }
+        .nome { background-image: url('imgs/nome.png'); }
         .senha { background-image: url('imgs/vector.svg'); }
-        .email { background-image: url('imgs/image 2.png'); }
-        .nome-livro { background-image: url('imgs/image 14.png'); }
+        .nascimento { background-image: url('imgs/calendario.png'); }
+        .nacionalidade { background-image: url('imgs/no-mundo-todo.png'); }
         .sinopse { background-image: url('imgs/image 12.png'); }
-        .nome-autor { background-image: url('imgs/image 13.png'); }
+        .biografia { background-image: url('imgs/image 12.png'); }
 
         .custom-input input {
             border: none;
@@ -207,33 +199,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
 
             <div class="custom-input">
-                <div class="icon usuario" aria-hidden="true"></div>
-                <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon nome" aria-hidden="true"></div>
+                <input type="text" name="nome_completo" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
-                <div class="icon senha" aria-hidden="true"></div>
-                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon nacionalidade" aria-hidden="true"></div>
+                <input type="text" name="nacionalidade" placeholder="Nacionalidade" value="<?= htmlspecialchars($nacionalidade) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
-                <div class="icon email" aria-hidden="true"></div>
-                <input type="email" name="email" placeholder="E-mail" value="<?= htmlspecialchars($email) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon nascimento" aria-hidden="true"></div>
+                <input type="date" name="datanascimento" placeholder="Data de Nascimento" value="<?= htmlspecialchars($data_nascimento) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">
-                <div class="icon nome-livro" aria-hidden="true"></div>
-                <input type="text" name="nome-livro" placeholder="Nome do livro" value="<?= htmlspecialchars($nomeLivro) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-            <div class="custom-input">
-                <div class="icon sinopse" aria-hidden="true"></div>
-                <input type="text" name="sinopse" placeholder="Sinopse" value="<?= htmlspecialchars($sinopse) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-            <div class="custom-input">
-                <div class="icon nome-autor" aria-hidden="true"></div>
-                <input type="text" name="autor" placeholder="Autor(a)" value="<?= htmlspecialchars($autor) ?>" <?= $success ? "readonly" : "" ?> required />
+                <div class="icon biografia" aria-hidden="true"></div>
+                <input type="text" name="biografia" placeholder="Biografia" value="<?= htmlspecialchars($biografia) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <?php if (!$success): ?>

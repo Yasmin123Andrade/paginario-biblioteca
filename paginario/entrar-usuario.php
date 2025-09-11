@@ -29,13 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
                 min-height: 100vh;
                 height: 100%;
-            background: url('img/fundoimagem.png') no-repeat center center;
-            background-size: cover;
                 display: flex;
     flex-direction: column;
+        }
+                .background {
+            background: url('imgs/image.png') no-repeat center center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: brightness(0.6);
         }
         main {
             flex: 1;
@@ -166,6 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
  <a href="entrar.php" class="seta-topo seta-direita">⬅</a>
+     <div class="background"></div>
     <main>
         <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
             <h1>BIBLIOTECA VIRTUAL</h1>
@@ -189,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <?php if (!$success): ?>
-                <button type="submit">CADASTRAR</button>
+                <button type="submit">ENTRAR</button>
             <?php endif; ?>
 
         </form>

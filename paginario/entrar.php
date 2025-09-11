@@ -11,10 +11,19 @@
         font-family: Georgia, serif;
     }
 
+        .background {
+            background: url('imgs/image.png') no-repeat center center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+
     body {
-        background-image: url('img/fundoimagem.png');
-        background-size: cover;
-        background-position: center;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -101,7 +110,8 @@
 
    
     <a href="index.html" class="seta-topo">⬅</a>
-
+    <div class="background"></div>
+    
     <div class="caixa">
         <h1>BIBLIOTECA VIRTUAL</h1>
         <a href="entrar-usuario.php" class="botao">ENTRAR USUÁRIO</a>
