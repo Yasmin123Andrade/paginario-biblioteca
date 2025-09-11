@@ -135,3 +135,7 @@ CREATE TABLE Endereco_usuario (
     cidade VARCHAR(100) NOT NULL,
     FOREIGN KEY (cpf_usuario) REFERENCES Usuario(cpf)
 ); 
+
+ALTER TABLE Usuario DROP COLUMN id_acesso;
+
+DROP TABLE IF EXISTS Acesso;
