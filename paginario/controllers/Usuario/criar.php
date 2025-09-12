@@ -1,5 +1,5 @@
 <?php
-require_once '../../db/conexao.php';
+require 'paginario-biblioteca/paginario/controllers/db/conexao.php';
 
 if ($_POST) {
     $cpf = $_POST['cpf'];

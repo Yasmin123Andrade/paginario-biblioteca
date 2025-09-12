@@ -1,5 +1,5 @@
 <?php
-require_once '../../db/conexao.php';
+require 'paginario-biblioteca/paginario/controllers/db/conexao.php';
 
 $sql = "SELECT * FROM Usuario";
 $result = $conn->query($sql);
