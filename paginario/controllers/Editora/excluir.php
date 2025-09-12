@@ -1,11 +1,11 @@
 <?php
 require 'paginario-biblioteca/paginario/controllers/db/conexao.php';
 
-$id_autor = $_GET['id_autor'];
+$id_editora = $_GET['id_editora'];
 
-$sql = "DELETE FROM Autor WHERE id_autor = ?";
+$sql = "DELETE FROM Editora WHERE id_editora = ?";
 $stmt = $conn->prepare($sql);
-$stmt->execute([$id_autor]);
+$stmt->execute([$id_editora]);
 
 header('Location: ler.php');
 exit();

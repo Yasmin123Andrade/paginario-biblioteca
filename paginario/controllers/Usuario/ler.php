@@ -14,6 +14,7 @@ $result = $conn->query($sql);
         <th>Nome</th>
         <th>Email</th>
         <th>Login</th>
+        <th>Telefone</th>
         <th>Ações</th>
     </tr>
     <?php while($row = $result->fetch(PDO::FETCH_ASSOC)): ?>
@@ -22,13 +23,11 @@ $result = $conn->query($sql);
         <td><?= $row['nome_completo'] ?></td>
         <td><?= $row['email'] ?></td>
         <td><?= $row['login'] ?></td>
+        <td><?= $row['telefone'] ?></td>
         <td>
             <a href="editar.php?cpf=<?= $row['cpf'] ?>">Editar</a> |
             <a href="excluir.php?cpf=<?= $row['cpf'] ?>" onclick="return confirm('Excluir?')">Excluir</a>
         </td>
     </tr>
     <?php endwhile; ?>
-</table>execute();
-var_dump($result->fetchAll(PDO::fetch_obj));
-
-?>
+</table>
