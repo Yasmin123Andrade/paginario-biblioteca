@@ -1,10 +1,16 @@
 <?php
+require_once 'db/conexao.php';
 
 $errors = [];
 $success = false;
- $cpf = $nome_completo = $email = $telefone = $login = $senha = "";
+$cpf = $nome_completo = $email = $telefone = $login = $senha = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if         .usuario { background-image: url('img/per.png'); }
+        .senha { background-image: url('img/vector.svg'); }
+        .email { background-image: url('img/image 2.png'); }
+        .telefone { background-image: url('img/chamada-telefonica.png'); }
+        .nome { background-image: url('img/nome.png'); }
+        .cpf { background-image: url('img/cpf.png'); }VER["REQUEST_METHOD"] == "POST") {
     $cpf = filter_input(INPUT_POST, 'CPF', FILTER_SANITIZE_STRING);
     $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -12,8 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
+    // Validações
     if (!$cpf) {
         $errors[] = "O campo CPF é obrigatório.";
+    } elseif (strlen($cpf) != 11) {
+        $errors[] = "CPF deve ter 11 dígitos.";
     }
     if (!$nome_completo) {
         $errors[] = "O campo Nome Completo é obrigatório.";
@@ -27,13 +36,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$login) {
         $errors[] = "O campo Usuário é obrigatório.";
     }
-        if (!$senha) {
+    if (!$senha) {
         $errors[] = "O campo Senha é obrigatório.";
     }
+
+    // Se não há erros, inserir no banco
     if (count($errors) === 0) {
-        $success = true;
-        header('Location: inicio.html');
-        exit();
+        try {
+            // Verificar se CPF já existe
+            $stmt = $conexao->prepare("SELECT cpf FROM Usuario WHERE cpf = ?");
+            $stmt->execute([$cpf]);
+            if ($stmt->fetch()) {
+                $errors[] = "CPF já cadastrado no sistema.";
+            } else {
+                // Verificar se login já existe
+                $stmt = $conexao->prepare("SELECT login FROM Usuario WHERE login = ?");
+                $stmt->execute([$login]);
+                if ($stmt->fetch()) {
+                    $errors[] = "Login já existe. Escolha outro.";
+                } else {
+                    // Verificar se email já existe
+                    $stmt = $conexao->prepare("SELECT email FROM Usuario WHERE email = ?");
+                    $stmt->execute([$email]);
+                    if ($stmt->fetch()) {
+                        $errors[] = "E-mail já cadastrado no sistema.";
+                    } else {
+                        // Inserir novo usuário
+                        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+                        $sql = "INSERT INTO Usuario (cpf, nome_completo, email, telefone, login, senha) VALUES (?, ?, ?, ?, ?, ?)";
+                        $stmt = $conexao->prepare($sql);
+                        $stmt->execute([$cpf, $nome_completo, $email, $telefone, $login, $senha_hash]);
+                        
+                        $success = true;
+                        header('Location: inicio.html');
+                        exit();
+                    }
+                }
+            }
+        } catch (PDOException $e) {
+            $errors[] = "Erro ao cadastrar: " . $e->getMessage();
+        }
     }
 }
 ?>
@@ -56,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
                 .background {
-            background: url('imgs/image.png') no-repeat center center;
+            background: url('img/image.png') no-repeat center center;
             background-size: cover;
             position: fixed;
             top: 0;
@@ -211,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="custom-input">
                 <div class="icon cpf" aria-hidden="true"></div>
-                <input type="text" name="cpf" placeholder="CPF" value="<?= htmlspecialchars($cpf) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="CPF" placeholder="CPF" value="<?= htmlspecialchars($cpf) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">

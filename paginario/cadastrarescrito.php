@@ -1,4 +1,6 @@
 <?php
+require_once 'db/conexao.php';
+
 $errors = [];
 $success = false;
 $nome_completo = $nacionalidade = $data_nascimento = $biografia = "";
@@ -6,9 +8,10 @@ $nome_completo = $nacionalidade = $data_nascimento = $biografia = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $nacionalidade = filter_input(INPUT_POST, 'nacionalidade', FILTER_SANITIZE_STRING);
-    $data_nascimento = filter_input(INPUT_POST, 'datanascimento', FILTER_SANITIZE_EMAIL);
+    $data_nascimento = filter_input(INPUT_POST, 'datanascimento', FILTER_SANITIZE_STRING);
     $biografia = filter_input(INPUT_POST, 'biografia', FILTER_SANITIZE_STRING);
 
+    // Validações
     if (!$nome_completo) {
         $errors[] = "O campo Nome Completo é obrigatório.";
     }
@@ -22,10 +25,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "O campo Biografia é obrigatório.";
     }
 
+    // Se não há erros, inserir no banco
     if (count($errors) === 0) {
-        $success = true;
-        header('Location: inicio.html');
-        exit();
+        try {
+            // Inserir novo autor
+            $sql = "INSERT INTO Autor (nome_completo, nacionalidade, data_nascimento, biografia) VALUES (?, ?, ?, ?)";
+            $stmt = $conexao->prepare($sql);
+            $stmt->execute([$nome_completo, $nacionalidade, $data_nascimento, $biografia]);
+            
+            $success = true;
+            header('Location: inicio.html');
+            exit();
+        } catch (PDOException $e) {
+            $errors[] = "Erro ao cadastrar autor: " . $e->getMessage();
+        }
     }
 }
 ?>
@@ -47,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #d6a65a;
         }
         .background {
-            background: url('imgs/image.png') no-repeat center center;
+            background: url('img/image.png') no-repeat center center;
             background-size: cover;
             position: fixed;
             top: 0;
@@ -200,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="custom-input">
                 <div class="icon nome" aria-hidden="true"></div>
-                <input type="text" name="nome_completo" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
+                <input type="text" name="nome" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <div class="custom-input">

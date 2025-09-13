@@ -1,5 +1,5 @@
 <?php
-require 'paginario-biblioteca/paginario/controllers/db/conexao.php';
+require '../../db/conexao.php';
 
 if ($_POST) {
     $cpf = $_POST['cpf'];
@@ -10,7 +10,7 @@ if ($_POST) {
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO Usuario (cpf, nome_completo, email, login, telefone, senha) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->execute([$cpf, $nome, $email, $login, $telefone, $senha]);
 
     header('Location: ler.php');

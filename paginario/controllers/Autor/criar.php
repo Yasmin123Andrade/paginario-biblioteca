@@ -1,5 +1,5 @@
 <?php
-require 'paginario-biblioteca/paginario/controllers/db/conexao.php';
+require '../../db/conexao.php';
 
 if ($_POST) {
     $nome_completo = $_POST['nome_completo'];
@@ -7,8 +7,8 @@ if ($_POST) {
     $data_nascimento = $_POST['data_nascimento'];
     $biografia = $_POST['biografia'];
     
-    $sql = "INSERT INTO Autor (nome_completo, nacionalidade, data_nascimento, biografia) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+    $sql = "INSERT INTO Autor (nome_completo, nacionalidade, data_nascimento, biografia) VALUES (?, ?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
     $stmt->execute([$nome_completo, $nacionalidade, $data_nascimento, $biografia]);
     
     header('Location: ler.php');
