@@ -1,60 +1,60 @@
 <?php
+session_start();
+require_once 'db/conexao.php';
+
 $errors = [];
 $success = false;
- $cpf_administrador = $nome_completo = $email = $telefone = $login = $senha = "";
+$cpf_administrador = $senha = "1401";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cpf_administrador = filter_input(INPUT_POST, 'CPF', FILTER_SANITIZE_STRING);
-    $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
-    $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
+    $cpf_administrador = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
     if (!$cpf_administrador) {
         $errors[] = "O campo CPF é obrigatório.";
     }
-    if (!$nome_completo) {
-        $errors[] = "O campo Nome Completo é obrigatório.";
-    }
-    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "E-mail inválido.";
-    }
-    if (!$telefone) {
-        $errors[] = "O campo Telefone é obrigatório.";
-    }
-    if (!$login) {
-        $errors[] = "O campo Usuário é obrigatório.";
-    }
-        if (!$senha) {
+    if (!$senha) {
         $errors[] = "O campo Senha é obrigatório.";
     }
+
     if (count($errors) === 0) {
-        $success = true;
-        header('Location: inicio.html');
-        exit();
+        try {
+            // Buscar administrador no banco
+            $stmt = $conexao->prepare("SELECT cpf_administrador, login, senha FROM Administrador WHERE cpf_administrador = ?");
+            $stmt->execute([$cpf_administrador]);
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($admin && password_verify($senha, $admin['senha'])) {
+                // Login bem-sucedido
+                $_SESSION['admin_cpf'] = $admin['cpf_administrador'];
+                $_SESSION['admin_senha'] = $admin['senha'];
+
+                $success = true;
+                header('Location: admin.php'); // Página inicial administrativa
+                exit();
+            } else {
+                $errors[] = "CPF ou senha incorretos.";
+            }
+        } catch (PDOException $e) {
+            $errors[] = "Erro no sistema. Tente novamente mais tarde.";
+        }
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro - Biblioteca Virtual</title>
+    <meta charset="UTF-8" />
+    <title>Login Administrador - Biblioteca Virtual</title>
     <style>
-        * {
+        body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
+            min-height: 100vh;
             height: 100%;
-            color: #d6a65a;
-                display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
         }
-
-                .background {
+        .background {
             background: url('imgs/image.png') no-repeat center center;
             background-size: cover;
             position: fixed;
@@ -72,8 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             padding: 40px 20px 80px;
         }
-
-        .registration-form {
+        .login-form {
             width: 420px;
             max-width: 95vw;
             background: #86541c;
@@ -83,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: column;
             gap: 20px;
         }
-        .registration-form h1 {
+        .login-form h1 {
             font-size: 40px;
             color: #d6a65a;
             font-weight: bold;
@@ -108,13 +107,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-size: contain;
             margin-right: 10px;
         }
-        .usuario { background-image: url('imgs/vector (1).svg'); }
-        .senha { background-image: url('imgs/vector.svg'); }
-        .email { background-image: url('imgs/image 2.png'); }
-        .telefone { background-image: url('imgs/chamada-telefonica.png'); }
-        .nome { background-image: url('imgs/nome.png'); }
         .cpf { background-image: url('imgs/cpf.png'); }
-
+        .senha { background-image: url('imgs/vector.svg'); }
         .custom-input input {
             border: none;
             outline: none;
@@ -128,9 +122,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .custom-input input:focus {
             color: #131212ff;
-            
         }
-        .registration-form button {
+        .login-form button {
             background-color: #E9A863;
             color: #804D07;
             border: 2px solid #fff;
@@ -143,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: 10px;
             cursor: pointer;
         }
-        .registration-form button:hover {
+        .login-form button:hover {
             background-color: #d1a25a;
         }
         .error-message {
@@ -156,52 +149,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.9rem;
             text-align: center;
         }
-
-    .main-footer {
-      text-align: center;
-      padding: 14px 0;
-  background: #86541c;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    .main-footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 6px;
-    }
-    /* ---- Seta no topo ---- */
-    .seta-topo {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background-color: #E9A863;
-        color: #804D07;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 50%;
-        text-decoration: none;
-        border: 2px solid #fff;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        transition: background 0.3s;
-    }
-
-    .seta-topo:hover {
-        background-color: #d1a25a;
-    }
-    
+        .main-footer {
+            text-align: center;
+            padding: 14px 0;
+            background: #86541c;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .main-footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+        .seta-topo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #E9A863;
+            color: #804D07;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+        .seta-topo:hover {
+            background-color: #d1a25a;
+        }
     </style>
 </head>
 <body>
- <a href="cadastrar.php" class="seta-topo seta-direita">⬅</a>
+    <a href="index.php" class="seta-topo seta-direita">⬅</a>
     <div class="background"></div>
     <main>
-        <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
+        <form class="login-form" method="post" action="" autocomplete="off" novalidate>
             <h1>BIBLIOTECA VIRTUAL</h1>
 
             <?php if (count($errors) > 0): ?>
-                <div class="error-message">
+                <div class="error-message" role="alert">
                     <?php foreach ($errors as $error): ?>
                         <p><?= htmlspecialchars($error) ?></p>
                     <?php endforeach; ?>
@@ -214,41 +202,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="custom-input">
-                <div class="icon nome" aria-hidden="true"></div>
-                <input type="text" name="nome" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-            <div class="custom-input">
-                <div class="icon email" aria-hidden="true"></div>
-                <input type="email" name="email" placeholder="E-mail" value="<?= htmlspecialchars($email) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-             <div class="custom-input">
-                <div class="icon telefone" aria-hidden="true"></div>
-                <input type="text" name="telefone" placeholder="Telefone" value="<?= htmlspecialchars($telefone) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-            
-            <div class="custom-input">
-                <div class="icon usuario" aria-hidden="true"></div>
-                <input type="text" name="login" placeholder="Usuário" value="<?= htmlspecialchars($login) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
-
-            <div class="custom-input">
                 <div class="icon senha" aria-hidden="true"></div>
                 <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
             <?php if (!$success): ?>
-                <button type="submit">CADASTRAR</button>
+                <button type="submit">ENTRAR</button>
             <?php endif; ?>
-
         </form>
-            </main>
-  <footer class="main-footer">
-    <a href="politicaprivacidade.html">Política de Privacidade</a> |
-    <a href="politicaprivacidade.html">Termos de Uso</a> |
-    <span>Todos os direitos reservados (BR)</span>
-  </footer>
+    </main>
+
+    <footer class="main-footer">
+        <a href="politicaprivacidade.html">Política de Privacidade</a> |
+        <a href="politicaprivacidade.html">Termos de Uso</a> |
+        <span>Todos os direitos reservados (BR)</span>
+    </footer>
 </body>
 </html>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+require_once 'db/conexao.php';
+
 $errors = [];
 $success = false;
 $usuario = $senha = "";
@@ -15,9 +18,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (count($errors) === 0) {
-        $success = true;
-        header('Location: inicio.html');
-        exit();
+        try {
+            // Buscar usuário no banco de dados
+            $stmt = $conexao->prepare("SELECT cpf, nome_completo, email, telefone, login, senha FROM Usuario WHERE login = ?");
+            $stmt->execute([$usuario]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user && password_verify($senha, $user['senha'])) {
+                // Login bem-sucedido
+                $_SESSION['user_id'] = $user['cpf'];
+                $_SESSION['user_login'] = $user['login'];
+                $_SESSION['user_nome'] = $user['nome_completo'];
+                $_SESSION['user_email'] = $user['email'];
+
+                // Verificar se é autor consultando a tabela Autor pelo CPF
+                $stmtAutor = $conexao->prepare("SELECT COUNT(*) FROM Autor WHERE cpf = ?");
+                $stmtAutor->execute([$user['cpf']]);
+                $isAutor = $stmtAutor->fetchColumn() > 0;
+
+                $success = true;
+                $redirectUrl = 'inicio.php';
+
+                if ($isAutor) {
+                    $redirectUrlAutor = 'pagina_autor.php';
+                }
+            } else {
+                $errors[] = "Usuário ou senha incorretos.";
+            }
+        } catch (PDOException $e) {
+            $errors[] = "Erro no sistema. Tente novamente mais tarde.";
+        }
     }
 }
 ?>

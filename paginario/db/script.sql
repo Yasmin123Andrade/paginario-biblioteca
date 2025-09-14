@@ -44,6 +44,7 @@ CREATE TABLE Livro (
     genero VARCHAR(100) NOT NULL,
     formato VARCHAR(100),
     link_arquivo VARCHAR(100) UNIQUE,
+    capa VARCHAR(255), 
     sinopse VARCHAR(100) NOT NULL,
     classificacao_indicativa INT NOT NULL,
     genero_id INT,

@@ -1,3 +1,13 @@
+<?php
+require_once 'auth.php';
+require_once 'db/conexao.php';
+
+// Verificar se o usuário está logado
+verificarLogin();
+
+// Obter dados do usuário logado
+$usuario_logado = obterUsuarioLogado();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -240,18 +250,19 @@
 
   <main>
     <div class="perfil">
-      <img src="img/WhatsApp Image 2025-08-16 at 10.31.16 AM.jpeg" alt="Foto do Usuário">
+      <img src="img/usuario-vetor.jpg" alt="Foto do Usuário">
       <div class="perfil-info">
-        <h2>Francilly da Paz</h2>
-        <p><strong>Email:</strong> francielly1414@gmail.com</p>
-        <p><strong>Membro desde:</strong> Março de 2025</p>
+        <h2><?= htmlspecialchars($usuario_logado['nome']) ?></h2>
+        <p><strong>Email:</strong> <?= htmlspecialchars($usuario_logado['email']) ?></p>
+        <p><strong>Login:</strong> <?= htmlspecialchars($usuario_logado['login']) ?></p>
+        <p><strong>Membro desde:</strong> 2025</p>
       </div>
     </div>
 
   <!-- Botões -->
   <div class="botoes-perfil">
     <button class="btn">Alterar Perfil</button>
-    <button class="btn">Sair</button>
+    <button class="btn" onclick="location.href='logout.php'">Sair</button>
   </div>
 </div>
 

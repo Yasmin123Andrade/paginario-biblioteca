@@ -5,12 +5,7 @@ $errors = [];
 $success = false;
 $cpf = $nome_completo = $email = $telefone = $login = $senha = "";
 
-if         .usuario { background-image: url('img/per.png'); }
-        .senha { background-image: url('img/vector.svg'); }
-        .email { background-image: url('img/image 2.png'); }
-        .telefone { background-image: url('img/chamada-telefonica.png'); }
-        .nome { background-image: url('img/nome.png'); }
-        .cpf { background-image: url('img/cpf.png'); }VER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf = filter_input(INPUT_POST, 'CPF', FILTER_SANITIZE_STRING);
     $nome_completo = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -68,7 +63,7 @@ if         .usuario { background-image: url('img/per.png'); }
                         $stmt->execute([$cpf, $nome_completo, $email, $telefone, $login, $senha_hash]);
                         
                         $success = true;
-                        header('Location: inicio.html');
+                        header('Location: inicio.php');
                         exit();
                     }
                 }

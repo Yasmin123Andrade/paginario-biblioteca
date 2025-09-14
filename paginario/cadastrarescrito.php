@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO Autor (nome_completo, nacionalidade, data_nascimento, biografia) VALUES (?, ?, ?, ?)";
             $stmt = $conexao->prepare($sql);
             $stmt->execute([$nome_completo, $nacionalidade, $data_nascimento, $biografia]);
-            
+
             $success = true;
-            header('Location: inicio.html');
+            header('Location: entrar-autor.php');
             exit();
         } catch (PDOException $e) {
             $errors[] = "Erro ao cadastrar autor: " . $e->getMessage();
@@ -42,13 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <title>Biblioteca Virtual</title>
-    <link rel="stylesheet" href="imgs" />
+    <title>Cadastro de Autor - Biblioteca Virtual</title>
     <style>
         * {
             margin: 0;
@@ -58,6 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body, html {
             height: 100%;
             color: #d6a65a;
+            display: flex;
+            flex-direction: column;
         }
         .background {
             background: url('img/image.png') no-repeat center center;
@@ -113,10 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-right: 10px;
         }
         .nome { background-image: url('imgs/nome.png'); }
-        .senha { background-image: url('imgs/vector.svg'); }
-        .nascimento { background-image: url('imgs/calendario.png'); }
         .nacionalidade { background-image: url('imgs/no-mundo-todo.png'); }
-        .sinopse { background-image: url('imgs/image 12.png'); }
+        .nascimento { background-image: url('imgs/calendario.png'); }
         .biografia { background-image: url('imgs/image 12.png'); }
 
         .custom-input input {
@@ -132,7 +130,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .custom-input input:focus {
             color: #131212ff;
-            
         }
         .registration-form button {
             background-color: #E9A863;
@@ -150,19 +147,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .registration-form button:hover {
             background-color: #d1a25a;
         }
-    .main-footer {
-      text-align: center;
-      padding: 14px 0;
-  background: #86541c;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    .main-footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 6px;
-    }
         .error-message {
             color: red;
             background-color: white;
@@ -173,76 +157,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.9rem;
             text-align: center;
         }
-        /* ---- Seta no topo ---- */
-    .seta-topo {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background-color: #E9A863;
-        color: #804D07;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 50%;
-        text-decoration: none;
-        border: 2px solid #fff;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        transition: background 0.3s;
-    }
-
-    .seta-topo:hover {
-        background-color: #d1a25a;
-    }
+        .main-footer {
+            text-align: center;
+            padding: 14px 0;
+            background: #86541c;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .main-footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+        .seta-topo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #E9A863;
+            color: #804D07;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+        .seta-topo:hover {
+            background-color: #d1a25a;
+        }
     </style>
 </head>
-
 <body>
- <a href="cadastrar.php" class="seta-topo seta-direita">⬅</a>
-    <div class="background"></div>
-    <main>
-        <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
-            <h1>BIBLIOTECA VIRTUAL</h1>
+<a href="cadastrar.php" class="seta-topo seta-direita">⬅</a>
+<div class="background"></div>
+<main>
+    <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
+        <h1>BIBLIOTECA VIRTUAL</h1>
 
-            <?php if (count($errors) > 0): ?>
-                <div class="error-message">
-                    <?php foreach ($errors as $error): ?>
-                        <p><?= htmlspecialchars($error) ?></p>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-
-            <div class="custom-input">
-                <div class="icon nome" aria-hidden="true"></div>
-                <input type="text" name="nome" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
+        <?php if (count($errors) > 0): ?>
+            <div class="error-message" role="alert">
+                <?php foreach ($errors as $error): ?>
+                    <p><?= htmlspecialchars($error) ?></p>
+                <?php endforeach; ?>
             </div>
+        <?php endif; ?>
 
-            <div class="custom-input">
-                <div class="icon nacionalidade" aria-hidden="true"></div>
-                <input type="text" name="nacionalidade" placeholder="Nacionalidade" value="<?= htmlspecialchars($nacionalidade) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
+        <div class="custom-input">
+            <div class="icon nome" aria-hidden="true"></div>
+            <input type="text" name="nome" placeholder="Nome Completo" value="<?= htmlspecialchars($nome_completo) ?>" <?= $success ? "readonly" : "" ?> required />
+        </div>
 
-            <div class="custom-input">
-                <div class="icon nascimento" aria-hidden="true"></div>
-                <input type="date" name="datanascimento" placeholder="Data de Nascimento" value="<?= htmlspecialchars($data_nascimento) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
+        <div class="custom-input">
+            <div class="icon nacionalidade" aria-hidden="true"></div>
+            <input type="text" name="nacionalidade" placeholder="Nacionalidade" value="<?= htmlspecialchars($nacionalidade) ?>" <?= $success ? "readonly" : "" ?> required />
+        </div>
 
-            <div class="custom-input">
-                <div class="icon biografia" aria-hidden="true"></div>
-                <input type="text" name="biografia" placeholder="Biografia" value="<?= htmlspecialchars($biografia) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
+        <div class="custom-input">
+            <div class="icon nascimento" aria-hidden="true"></div>
+            <input type="date" name="datanascimento" placeholder="Data de Nascimento" value="<?= htmlspecialchars($data_nascimento) ?>" <?= $success ? "readonly" : "" ?> required />
+        </div>
 
-            <?php if (!$success): ?>
-                <button type="submit">CADASTRAR</button>
-            <?php endif; ?>
+        <div class="custom-input">
+            <div class="icon biografia" aria-hidden="true"></div>
+            <input type="text" name="biografia" placeholder="Biografia" value="<?= htmlspecialchars($biografia) ?>" <?= $success ? "readonly" : "" ?> required />
+        </div>
 
-        </form>
-    </main>
+        <?php if (!$success): ?>
+            <button type="submit">CADASTRAR</button>
+        <?php endif; ?>
+    </form>
+</main>
 
-  <footer class="main-footer">
-    <a href="#">Política de Privacidade</a> |
-    <a href="#">Termos de Uso</a> |
+<footer class="main-footer">
+    <a href="politicaprivacidade.html">Política de Privacidade</a> |
+    <a href="politicaprivacidade.html">Termos de Uso</a> |
     <span>Todos os direitos reservados (BR)</span>
-  </footer>
-
+</footer>
 </body>
 </html>
+

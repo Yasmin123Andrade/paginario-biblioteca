@@ -1,15 +1,48 @@
 <?php
-$mensagem = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"] ?? "";
-    $autor = $_POST["autor"] ?? "";
-    $email = $_POST["email"] ?? "";
-    $sinopse = $_POST["sinopse"] ?? "";
-    $idade = $_POST["idade"] ?? "";
+session_start();
+require_once 'db/conexao.php';
 
-    $mensagem = "Solicitação registrada com sucesso! Você será avisado por e-mail.";
+$mensagem = "";
+
+$cpf = $_SESSION['user_cpf'] ?? null;
+$cpf_administrador = '00000000000'; 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $nome_livro = trim($_POST["nome-livro"] ?? "");
+    $autor = trim($_POST["autor"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $sinopse = trim($_POST["sinopse"] ?? "");
+    $indicativo_etario = trim($_POST["indicativo etário"] ?? "");
+
+    if (!$cpf) {
+        $mensagem = "Usuário não identificado. Faça login para solicitar.";
+    } elseif (!$nome_livro || !$autor || !$email) {
+        $mensagem = "Por favor, preencha os campos obrigatórios.";
+    } else {
+        try {
+            $stmtLivro = $conexao->prepare("SELECT id_livro FROM Livro WHERE nome_livro = ?");
+            $stmtLivro->execute([$nome_livro]);
+            $livro = $stmtLivro->fetch(PDO::FETCH_ASSOC);
+
+            if (!$livro) {
+                $mensagem = "Livro não encontrado no sistema. Aguarde aprovação do administrador.";
+                $id_livro = null;
+            } else {
+                $id_livro = $livro['id_livro'];
+            }
+
+            $sql = "INSERT INTO Solicitacao (cpf_usuario, id_livro, data_solicitacao, cpf_administrador) VALUES (?, ?, CURDATE(), ?)";
+            $stmt = $conexao->prepare($sql);
+            $stmt->execute([$cpf, $id_livro, $cpf_administrador]);
+
+            $mensagem = "Solicitação registrada com sucesso! Você será avisado por e-mail.";
+        } catch (PDOException $e) {
+            $mensagem = "Erro ao registrar solicitação: " . $e->getMessage();
+        }
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -311,7 +344,7 @@ SOLICITAÇÃO DE LIVROS</div>
 
                         <div class="custom-input">
                 <div class="icon usuario" aria-hidden="true"></div>
-                <input type="text" name="indicativo etário" placeholder="Indicativo Etário" required />
+                <input type="text" name="indicativo etário" placeholder="Indicativo Etário" value="<?= htmlspecialchars($cpf_administrador) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
 
                 <button type="submit">CADASTRAR</button>
