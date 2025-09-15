@@ -4,7 +4,7 @@ require_once 'db/conexao.php';
 
 $errors = [];
 $success = false;
-$cpf_administrador = $senha = "1401";
+$cpf_administrador = $senha = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf_administrador = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);

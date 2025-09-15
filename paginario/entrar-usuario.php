@@ -25,16 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($senha, $user['senha'])) {
-                // Login bem-sucedido - salva as variáveis de sessão
+                // Login bem-sucedido
                 $_SESSION['user_id'] = $user['cpf'];
                 $_SESSION['user_login'] = $user['login'];
                 $_SESSION['user_nome'] = $user['nome_completo'];
                 $_SESSION['user_email'] = $user['email'];
-
+                
                 $success = true;
-
-                // Redirecionar para a página inicial
-                header("Location: inicio.php");
+                header('Location: inicio.php');
                 exit();
             } else {
                 $errors[] = "Usuário ou senha incorretos.";
@@ -51,16 +49,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Biblioteca Virtual</title>
     <style>
-        /* Seu CSS permanece igual */
         body {
             margin: 0;
-            min-height: 100vh;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+                min-height: 100vh;
+                height: 100%;
+                display: flex;
+    flex-direction: column;
         }
-        .background {
-            background: url('img/image.png') no-repeat center center;
+                .background {
+            background: url('imgs/image.png') no-repeat center center;
             background-size: cover;
             position: fixed;
             top: 0;
@@ -77,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             padding: 40px 20px 80px;
         }
+
         .registration-form {
             width: 420px;
             max-width: 95vw;
@@ -132,6 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .custom-input input:focus {
             color: #131212ff;
+            
         }
         .registration-form button {
             background-color: #E9A863;
@@ -159,73 +158,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.9rem;
             text-align: center;
         }
-        .main-footer {
-            text-align: center;
-            padding: 14px 0;
-            background: #86541c;
-            color: #fff;
-            font-size: 0.9rem;
-        }
-        .main-footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 6px;
-        }
-        .seta-topo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #E9A863;
-            color: #804D07;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 10px 16px;
-            border-radius: 50%;
-            text-decoration: none;
-            border: 2px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: background 0.3s;
-        }
-        .seta-topo:hover {
-            background-color: #d1a25a;
-        }
+        
+    .main-footer {
+      text-align: center;
+      padding: 14px 0;
+  background: #86541c;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .main-footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    /* ---- Seta no topo ---- */
+    .seta-topo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #E9A863;
+        color: #804D07;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 16px;
+        border-radius: 50%;
+        text-decoration: none;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: background 0.3s;
+    }
+
+    .seta-topo:hover {
+        background-color: #d1a25a;
+    }
     </style>
 </head>
 <body>
-<a href="entrar.php" class="seta-topo seta-direita">⬅</a>
-<div class="background"></div>
-<main>
-    <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
-        <h1>BIBLIOTECA VIRTUAL</h1>
+ <a href="entrar.php" class="seta-topo seta-direita">⬅</a>
+     <div class="background"></div>
+    <main>
+        <form class="registration-form" method="post" action="" autocomplete="off" novalidate>
+            <h1>BIBLIOTECA VIRTUAL</h1>
 
-        <?php if (count($errors) > 0): ?>
-            <div class="error-message">
-                <?php foreach ($errors as $error): ?>
-                    <p><?= htmlspecialchars($error) ?></p>
-                <?php endforeach; ?>
+            <?php if (count($errors) > 0): ?>
+                <div class="error-message">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?= htmlspecialchars($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="custom-input">
+                <div class="icon usuario" aria-hidden="true"></div>
+                <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
             </div>
-        <?php endif; ?>
 
-        <div class="custom-input">
-            <div class="icon usuario" aria-hidden="true"></div>
-            <input type="text" name="usuario" placeholder="Usuário" value="<?= htmlspecialchars($usuario) ?>" <?= $success ? "readonly" : "" ?> required />
-        </div>
+            <div class="custom-input">
+                <div class="icon senha" aria-hidden="true"></div>
+                <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
+            </div>
 
-        <div class="custom-input">
-            <div class="icon senha" aria-hidden="true"></div>
-            <input type="password" name="senha" placeholder="Senha" value="<?= htmlspecialchars($senha) ?>" <?= $success ? "readonly" : "" ?> required />
-        </div>
+            <?php if (!$success): ?>
+                <button type="submit">ENTRAR</button>
+            <?php endif; ?>
 
-        <?php if (!$success): ?>
-            <button type="submit">ENTRAR</button>
-        <?php endif; ?>
-
-    </form>
-</main>
-<footer class="main-footer">
+        </form>
+            </main>
+  <footer class="main-footer">
     <a href="politicaprivacidade.html">Política de Privacidade</a> |
     <a href="politicaprivacidade.html">Termos de Uso</a> |
     <span>Todos os direitos reservados (BR)</span>
-</footer>
+  </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@ if (!$livro) {
     <meta charset="UTF-8" />
     <title><?=htmlspecialchars($livro['titulo'])?> — Detalhes</title>
     <style>
-        /* Estilos adaptados do seu exemplo */
+
         body {
             font-family: 'Georgia', serif;
             background: #86541c;
