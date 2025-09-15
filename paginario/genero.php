@@ -254,6 +254,7 @@ $livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <header>
+    <div class="background"></div>
     <div class="menu-icon">   
         <img src="img/component 1.svg" alt="Abrir Menu" />
     </div>

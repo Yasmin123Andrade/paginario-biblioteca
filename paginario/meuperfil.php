@@ -2,10 +2,8 @@
 require_once 'auth.php';
 require_once 'db/conexao.php';
 
-// Verificar se o usuário está logado
 verificarLogin();
 
-// Obter dados do usuário logado
 $usuario_logado = obterUsuarioLogado();
 ?>
 <!DOCTYPE html>

@@ -2,11 +2,6 @@
 require_once 'db/conexao.php';
 require_once 'auth.php';
 
-verificarLogin();
-
-$usuario_logado = obterUsuarioLogado();
-
-// Buscar livros
 $sql = "SELECT L.id_livro, L.titulo, L.autor, L.classificacao_indicativa, L.capa FROM Livro L ORDER BY L.titulo";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();

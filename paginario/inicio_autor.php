@@ -1,11 +1,5 @@
 <?php
 require_once 'auth.php';
-
-// Verificar se o usuário está logado
-verificarLogin();
-
-// Obter dados do usuário logado
-$usuario_logado = obterUsuarioLogado();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
