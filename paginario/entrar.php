@@ -109,7 +109,7 @@
 <body>
 
    
-    <a href="index.html" class="seta-topo">⬅</a>
+    <a href="index.php" class="seta-topo">⬅</a>
     <div class="background"></div>
     
     <div class="caixa">

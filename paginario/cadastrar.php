@@ -12,7 +12,7 @@
     }
 
     body {
-        background-image: url('imgs/image.png');
+        background-image: url('img/image.png');
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -112,7 +112,7 @@
 <body>
 
    
-    <a href="index.html" class="seta-topo">⬅</a>
+    <a href="index.php" class="seta-topo">⬅</a>
         <div class="background"></div>
 
     <div class="caixa">
