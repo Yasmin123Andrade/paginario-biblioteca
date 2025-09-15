@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     flex-direction: column;
         }
                 .background {
-            background: url('imgs/image.png') no-repeat center center;
+            background: url('img/image.png') no-repeat center center;
             background-size: cover;
             position: fixed;
             top: 0;

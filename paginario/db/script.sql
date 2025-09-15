@@ -114,18 +114,16 @@ CREATE TABLE Acesso (
     FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
 );
 
--- Criação da tabela Solicitacao -- 
+-- Criação da tabela Solicitação -- 
 CREATE TABLE Solicitacao (
     id_solicitacao INT PRIMARY KEY AUTO_INCREMENT,
-    cpf_usuario CHAR(11) NOT NULL,
-    id_livro INT,
-    data_solicitacao DATE NOT NULL,
-    cpf_administrador CHAR(11) NOT NULL,
-    FOREIGN KEY (cpf_usuario) REFERENCES Usuario(cpf),
-    FOREIGN KEY (id_livro) REFERENCES Livro(id_livro),
-    FOREIGN KEY (cpf_administrador) REFERENCES Administrador(cpf_administrador)
+    indicativo_etario VARCHAR(50) NOT NULL,
+    cpf CHAR(11) NOT NULL,
+    nome_livro VARCHAR(255) NOT NULL,
+    nome_autor VARCHAR(255) NOT NULL,
+    sinopse TEXT NOT NULL,
+    FOREIGN KEY (cpf) REFERENCES Usuario(cpf)
 );
-
 
 -- Criação da tabela Endereco usuario -- 
 CREATE TABLE Endereco_usuario (

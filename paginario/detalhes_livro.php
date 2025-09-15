@@ -35,7 +35,7 @@ if (!$livro) {
             flex-direction: column;
         }
         header {
-            background: url('img/fundoimagem.png') no-repeat center center;
+            background: url('img/imagem.png') no-repeat center center;
             background-size: cover;
             color: #fff;
             width: 100%;
@@ -127,15 +127,15 @@ if (!$livro) {
 </head>
 <body>
 <header>
-    <h1>Informações do Livro</h1>
+    <h1>INFORMAÇÕES DO LIVRO</h1>
 </header>
 <main>
     <section class="book-details">
         <div class="book-cover">
             <?php
             // Exibir a capa se houver link
-            if (!empty($livro['link_arquivo'])): ?>
-                <img src="<?=htmlspecialchars($livro['link_arquivo'])?>" alt="<?=htmlspecialchars($livro['titulo'])?>">
+            if (!empty($livro['capa'])): ?>
+                <img src="<?=htmlspecialchars($livro['capa'])?>" alt="<?=htmlspecialchars($livro['titulo'])?>">
             <?php else: ?>
                 <img src="img/placeholder.png" alt="Sem Capa">
             <?php endif; ?>

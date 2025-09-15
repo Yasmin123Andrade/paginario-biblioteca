@@ -2,7 +2,6 @@
 session_start();
 require_once 'db/conexao.php';
 
-
 $errors = [];
 $success = false;
 
@@ -16,19 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
     $ano_publicacao = filter_input(INPUT_POST, 'ano_publicacao', FILTER_SANITIZE_NUMBER_INT);
     $editor = filter_input(INPUT_POST, 'editor', FILTER_SANITIZE_STRING);
-    $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
+    $genero_nome = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
     $formato = filter_input(INPUT_POST, 'formato', FILTER_SANITIZE_STRING);
     $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRING);
     $classificacao_indicativa = filter_input(INPUT_POST, 'classificacao_indicativa', FILTER_SANITIZE_NUMBER_INT);
 
-    // Validações obrigatórias
     if (!$titulo) $errors[] = "O campo título é obrigatório.";
     if (!$autor) $errors[] = "O campo autor é obrigatório.";
-    if (!$genero) $errors[] = "O campo gênero é obrigatório.";
+    if (!$genero_nome) $errors[] = "O campo gênero é obrigatório.";
     if (!$sinopse) $errors[] = "O campo sinopse é obrigatório.";
-    if (!$classificacao_indicativa) $errors[] = "A classificação indicativa é obrigatória.";
+    if (!$classificacao_indicativa && $classificacao_indicativa !== '0') $errors[] = "A classificação indicativa é obrigatória.";
 
-    // Upload da capa (imagem)
     if (isset($_FILES['capa']) && $_FILES['capa']['error'] !== UPLOAD_ERR_NO_FILE) {
         $allowed_types_img = ['image/jpeg', 'image/png', 'image/gif'];
         if (in_array($_FILES['capa']['type'], $allowed_types_img)) {
@@ -51,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "É obrigatório enviar uma imagem de capa.";
     }
 
-    // Upload do PDF/EPUB
     if (isset($_FILES['link_arquivo']) && $_FILES['link_arquivo']['error'] !== UPLOAD_ERR_NO_FILE) {
         $allowed_types_file = ['application/pdf', 'application/epub+zip'];
         if (in_array($_FILES['link_arquivo']['type'], $allowed_types_file)) {
@@ -74,10 +70,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "É obrigatório enviar o arquivo PDF ou EPUB do livro.";
     }
 
+    $genero_id = null;
+    if ($genero_nome) {
+        $genero_stmt = $conexao->prepare('SELECT id_genero FROM Genero WHERE nome = ?');
+        $genero_stmt->execute([$genero_nome]);
+        $genero_result = $genero_stmt->fetch(PDO::FETCH_ASSOC);
+        if ($genero_result) {
+            $genero_id = $genero_result['id_genero'];
+        } else {
+            $errors[] = 'Gênero não encontrado.';
+        }
+    }
+
     if (count($errors) === 0) {
         $sql = "INSERT INTO Livro 
-            (titulo, autor, ano_publicacao, editor, genero, formato, link_arquivo, sinopse, classificacao_indicativa, cpf_administrador, capa) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            (titulo, autor, ano_publicacao, editor, formato, link_arquivo, sinopse, classificacao_indicativa, cpf_administrador, capa, genero_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = $conexao->prepare($sql);
         try {
             $stmt->execute([
@@ -85,13 +93,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $autor,
                 $ano_publicacao ?: null,
                 $editor ?: null,
-                $genero,
                 $formato ?: null,
                 $link_arquivo_path,
                 $sinopse,
                 $classificacao_indicativa,
                 $_SESSION['user_cpf'],
-                $capa_path
+                $capa_path,
+                $genero_id
             ]);
             $success = true;
             header("Location: detalhes_livro.php?id=" . $conexao->lastInsertId());
@@ -108,29 +116,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Cadastro de Livro - Biblioteca Virtual</title>
     <style>
-        * {margin:0; 
-            padding:0; 
-            box-sizing:border-box;
-        }
-
+        * {margin:0; padding:0; box-sizing:border-box;}
         body, html {
             height:100%;
             color:#d6a65a;
             display:flex;
             flex-direction:column;
         }
-
         .background {
             background:url('img/image.png') no-repeat center center;
             background-size:cover;
             position:fixed;
-            top:0;
-            left:0;
-            width:100vw;
-            height:100vh;
+            top:0; left:0;
+            width:100vw; height:100vh;
             z-index:-1;
             filter:brightness(0.6);
         }
@@ -180,7 +181,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding:0;
             min-width:0;
         }
-
         .registration-form button {
             background-color:#E9A863;
             color:#804D07;
@@ -194,11 +194,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top:10px;
             cursor:pointer;
         }
-
         .registration-form button:hover {
             background-color:#d1a25a;
         }
-
         .error-message {
             color:red;
             background-color:white;
@@ -207,7 +205,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin:5px 0;
             font-weight:bold;
             font-size:0.9rem;
-            text-align:center;}
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -235,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="editor" placeholder="Editora" value="<?= htmlspecialchars($editor) ?>" />
             </div>
             <div class="custom-input">
-                <input type="text" name="genero" placeholder="Gênero" value="<?= htmlspecialchars($genero) ?>" required />
+                <input type="text" name="genero" placeholder="Gênero (deve existir na base)" value="<?= htmlspecialchars($genero_nome) ?>" required />
             </div>
             <div class="custom-input">
                 <input type="text" name="formato" placeholder="Formato" value="<?= htmlspecialchars($formato) ?>" />

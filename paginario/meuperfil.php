@@ -231,16 +231,17 @@ $usuario_logado = obterUsuarioLogado();
       <img src="img/component 1.svg" alt="Fechar Menu"/>
     </div>
     <ul>
-      <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
-      <li><a style="color: peru;">------------------------------</a></li>
-      <li><a href="genero-literario.html">Gênero</a></li>
-      <li><a href="autores.php">Autor</a></li>
-      <li><a href="editora.html">Editora</a></li>
-      <li><a href="#">Faixa Etária</a></li>
-      <li><a style="color: peru;">------------------------------</a></li>
-      <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
-      <li><a style="color: peru;">------------------------------</a></li>
-      <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
+        <li><a href="inicio.php" style="color: antiquewhite;">Página Inicial</a></li>
+        <li><a style="color: peru;">------------------------------</a></li>
+        <li><a style="color: antiquewhite;">Filtros</a></li>
+        <li><a href="genero.php">Gênero</a></li>
+        <li><a href="autores.php">Autor</a></li>
+        <li><a href="editora.php">Editora</a></li>
+        <li><a href="faixaetaria.php">Faixa Etária</a></li>
+        <li><a style="color: peru;">------------------------------</a></li>
+        <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
+        <li><a style="color: peru;">------------------------------</a></li>
+        <li><a href="meuperfil.php" style="color: antiquewhite;">Meu Perfil</a></li>
     </ul>
   </nav>
 

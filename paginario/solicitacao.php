@@ -2,55 +2,63 @@
 session_start();
 require_once 'db/conexao.php';
 
-$mensagem = "";
+$errors = [];
+$success = false;
+
+$nome_livro = $nome_autor = $email = $sinopse = $indicativo_etario = "";
 
 $cpf = $_SESSION['user_cpf'] ?? null;
-$cpf_administrador = '00000000000'; 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $nome_livro = trim($_POST["nome-livro"] ?? "");
-    $autor = trim($_POST["autor"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $sinopse = trim($_POST["sinopse"] ?? "");
-    $indicativo_etario = trim($_POST["indicativo etário"] ?? "");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome_livro = filter_input(INPUT_POST, 'nome_livro', FILTER_SANITIZE_STRING);
+    $nome_autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRING);
+    $indicativo_etario = filter_input(INPUT_POST, 'indicativo_etario', FILTER_SANITIZE_STRING);
 
     if (!$cpf) {
-        $mensagem = "Usuário não identificado. Faça login para solicitar.";
-    } elseif (!$nome_livro || !$autor || !$email) {
-        $mensagem = "Por favor, preencha os campos obrigatórios.";
-    } else {
+        $errors[] = "Usuário não autenticado. Faça login para solicitar.";
+    }
+
+    if (!$nome_livro) {
+        $errors[] = "O campo Nome do Livro é obrigatório.";
+    }
+    if (!$nome_autor) {
+        $errors[] = "O campo Autor é obrigatório.";
+    }
+    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "E-mail inválido ou não preenchido.";
+    }
+    if (!$sinopse) {
+        $errors[] = "O campo Sinopse é obrigatório.";
+    }
+    if (!$indicativo_etario) {
+        $errors[] = "O campo Indicativo Etário é obrigatório.";
+    }
+
+    if (count($errors) === 0) {
         try {
-            $stmtLivro = $conexao->prepare("SELECT id_livro FROM Livro WHERE nome_livro = ?");
-            $stmtLivro->execute([$nome_livro]);
-            $livro = $stmtLivro->fetch(PDO::FETCH_ASSOC);
-
-            if (!$livro) {
-                $mensagem = "Livro não encontrado no sistema. Aguarde aprovação do administrador.";
-                $id_livro = null;
-            } else {
-                $id_livro = $livro['id_livro'];
-            }
-
-            $sql = "INSERT INTO Solicitacao (cpf_usuario, id_livro, data_solicitacao, cpf_administrador) VALUES (?, ?, CURDATE(), ?)";
+            $sql = "INSERT INTO Solicitacao (indicativo_etario, cpf, nome_livro, nome_autor, sinopse) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conexao->prepare($sql);
-            $stmt->execute([$cpf, $id_livro, $cpf_administrador]);
+            $stmt->execute([$indicativo_etario, $cpf, $nome_livro, $nome_autor, $sinopse]);
 
-            $mensagem = "Solicitação registrada com sucesso! Você será avisado por e-mail.";
+            $success = true;
+            $mensagem = "Solicitação cadastrada com sucesso!";
+            $nome_livro = $nome_autor = $email = $sinopse = $indicativo_etario = "";
         } catch (PDOException $e) {
-            $mensagem = "Erro ao registrar solicitação: " . $e->getMessage();
+            $errors[] = "Erro ao cadastrar solicitação: " . $e->getMessage();
         }
     }
 }
 ?>
 
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Solicitação de Livros</title>
     <link hrf="img">
-    <link rel="stylesheet" href="imgs" />
+    <link rel="stylesheet" href="img" />
     <style>
  * {
         margin: 0;
@@ -146,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         .livros {
-            background: url('img/fundoimagem.png') no-repeat center;
+            background: url('img/image.png') no-repeat center;
             background-size: cover;
             height: 150px;
         }
@@ -296,13 +304,13 @@ SOLICITAÇÃO DE LIVROS</div>
     <img src="img/component 1.svg" alt="Fechar Menu"/>
   </div>
   <ul>
-    <li><a href="inicio.html" style="color: antiquewhite;">Página Inicial</a></li>
+    <li><a href="inicio.php" style="color: antiquewhite;">Página Inicial</a></li>
     <li><a style="color: peru;">------------------------------</a></li>
     <li><a style="color: antiquewhite;">Filtros</a></li>
-    <li><a href="genero-literario.html">Gênero</a></li>
+    <li><a href="genero.php">Gênero</a></li>
     <li><a href="autores.php">Autor</a></li>
-    <li><a href="editora.html">Editora</a></li>
-    <li><a href="faixaetaria.html">Faixa Etária</a></li>
+    <li><a href="editora.php">Editora</a></li>
+    <li><a href="faixaetaria.php">Faixa Etária</a></li>
     <li><a style="color: peru;">------------------------------</a></li>
     <li><a href="solicitacao.php" style="color: antiquewhite;">Solicitação de livros</a></li>
      <li><a style="color: peru;">------------------------------</a></li>
@@ -313,43 +321,51 @@ SOLICITAÇÃO DE LIVROS</div>
 
 <div class="conteudo">
 
-    <?php if ($mensagem): ?>
-        <div class="mensagem"><?= htmlspecialchars($mensagem) ?></div>
-    <?php endif; ?>
 
     <p>Parece que o livro que você procura ainda não está disponível no sistema.
         Você pode solicitar sua inclusão preenchendo os campos abaixo:</p>
 
-            <form class="registration-form" method="post">
+<form class="registration-form" method="post">
+    <?php if ($success): ?>
+        <div class="mensagem"><?= htmlspecialchars($mensagem) ?></div>
+    <?php endif; ?>
 
-            <div class="custom-input">
-                <div class="icon nome-livro" aria-hidden="true"></div>
-                <input type="text" name="nome-livro" placeholder="Nome do livro" required />
-            </div>
+    <?php if (count($errors) > 0): ?>
+        <div class="mensagem" style="background: #f44336;">
+            <?php foreach ($errors as $error): ?>
+                <p><?= htmlspecialchars($error) ?></p>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
-                        <div class="custom-input">
-                <div class="icon nome-autor" aria-hidden="true"></div>
-                <input type="text" name="autor" placeholder="Autor(a)" required />
-            </div>
+    <div class="custom-input">
+        <div class="icon nome-livro" aria-hidden="true"></div>
+        <input type="text" name="nome_livro" placeholder="Nome do livro" required value="<?= htmlspecialchars($nome_livro) ?>" />
+    </div>
 
-                        <div class="custom-input">
-                <div class="icon email" aria-hidden="true"></div>
-                <input type="email" name="email" placeholder="E-mail" required />
-            </div>
+    <div class="custom-input">
+        <div class="icon nome-autor" aria-hidden="true"></div>
+        <input type="text" name="autor" placeholder="Autor(a)" required value="<?= htmlspecialchars($nome_autor) ?>" />
+    </div>
 
-            <div class="custom-input">
-                <div class="icon sinopse" aria-hidden="true"></div>
-                <input type="text" name="sinopse" placeholder="Sinopse" required />
-            </div>
+    <div class="custom-input">
+        <div class="icon email" aria-hidden="true"></div>
+        <input type="email" name="email" placeholder="E-mail" required value="<?= htmlspecialchars($email) ?>" />
+    </div>
 
-                        <div class="custom-input">
-                <div class="icon usuario" aria-hidden="true"></div>
-                <input type="text" name="indicativo etário" placeholder="Indicativo Etário" value="<?= htmlspecialchars($cpf_administrador) ?>" <?= $success ? "readonly" : "" ?> required />
-            </div>
+    <div class="custom-input">
+        <div class="icon sinopse" aria-hidden="true"></div>
+        <input type="text" name="sinopse" placeholder="Sinopse" required value="<?= htmlspecialchars($sinopse) ?>" />
+    </div>
 
-                <button type="submit">CADASTRAR</button>
+    <div class="custom-input">
+        <div class="icon usuario" aria-hidden="true"></div>
+        <input type="text" name="indicativo_etario" placeholder="Indicativo Etário" required value="<?= htmlspecialchars($indicativo_etario) ?>" />
+    </div>
 
-        </form>
+    <button type="submit">CADASTRAR</button>
+</form>
+
 </div>
 
   <footer class="main-footer">

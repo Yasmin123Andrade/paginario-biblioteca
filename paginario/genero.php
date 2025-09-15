@@ -7,7 +7,7 @@ verificarLogin();
 $usuario_logado = obterUsuarioLogado();
 
 // Buscar livros
-$sql = "SELECT L.id_livro, L.autor, L.titulo, L.autor, L.classificacao_indicativa, L.capa, L.genero FROM Livro L ORDER BY L.titulo";
+$sql = "SELECT L.id_livro, L.titulo, L.autor, L.classificacao_indicativa, L.capa, L.genero FROM Livro L ORDER BY L.titulo";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
 $livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@ $livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Autores – Filtro de Pesquisa</title>
+    <title>Gêneros – Filtro de Pesquisa</title>
     <style>
         * {
             margin: 0;
@@ -261,7 +261,7 @@ $livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>FILTRO DE PESQUISA</h1>
 
     <div class="search-container">
-        <input type="text" id="myInput" placeholder="Pesquisar Autores..." title="Digite o nome do Livro">
+        <input type="text" id="myInput" placeholder="Pesquisar Gêneros..." title="Digite o nome do Livro">
     </div>
 </header>
 
@@ -315,14 +315,14 @@ document.getElementById("myInput").addEventListener("keyup", myFunction);
         <div class="icon-wrapper">
             <img src="./img/paginario.png" alt="Logo Paginário" class="book-icon" style="width: 50px; height: 50px;">
         </div>
-        <h1>AUTORES</h1>
+        <h1>GÊNEROS</h1>
     </div>
 
     <div class="book-grid">
         <?php foreach ($livros as $livro): ?>
             <div class="book-card">
                 <a href="detalhes_livro.php?id=<?= $livro['id_livro']; ?>" style="text-decoration: none; color: inherit;">
-                    <h2><?= htmlspecialchars($livro['autor']); ?></h2><br>
+                    <h2><?= htmlspecialchars($livro['genero']); ?></h2><br>
                     <div class="cover-container">
                         <img src="<?= htmlspecialchars($livro['capa']); ?>" alt="<?= htmlspecialchars($livro['titulo']); ?>">
                         <span class="badge"><?= (int)$livro['classificacao_indicativa']; ?>+</span>
