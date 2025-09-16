@@ -34,7 +34,7 @@
             filter: brightness(0.6);
         }
 
-    /* ---- Seta no topo ---- */
+    /* ---- Seta no topo da pagina ---- */
     .seta-topo {
         position: absolute;
         top: 20px;
